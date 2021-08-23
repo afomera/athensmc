@@ -4,15 +4,15 @@ module ApplicationHelper
   end
 
   def body_classes
-    user_signed_in? ? 'logged-in' : 'logged-out'
+    user_signed_in? ? "logged-in" : "logged-out"
   end
 
   def bootstrap_class_for(flash_type)
     {
-      success: 'alert-success',
-      error: 'alert-danger',
-      alert: 'alert-warning',
-      notice: 'alert-info'
+      success: "alert-success",
+      error: "alert-danger",
+      alert: "alert-warning",
+      notice: "alert-info"
     }.stringify_keys[
       flash_type.to_s
     ] ||
@@ -22,36 +22,36 @@ module ApplicationHelper
   def body_data_page
     action =
       case action_name
-      when 'create'
-        'new'
-      when 'update'
-        'edit'
+      when "create"
+        "new"
+      when "update"
+        "edit"
       else
         action_name
       end
         .downcase
 
-    path = controller.controller_path.split('/')
+    path = controller.controller_path.split("/")
     namespace = path.first if path.second
 
-    [namespace, controller.controller_name, action].compact.join(':')
+    [namespace, controller.controller_name, action].compact.join(":")
   end
 
   def forum_post_classes(forum_post)
     klasses = []
-    klasses << 'original-poster' if forum_post.user == @forum_thread.user
+    klasses << "original-poster" if forum_post.user == @forum_thread.user
     klasses
   end
 
   def user_badges(user)
     badges = []
     if user.admin?
-      badges << content_tag(:span, 'Admin', class: 'badge badge-danger')
+      badges << content_tag(:span, "Admin", class: "badge badge-danger")
     end
     if user.whitelisted?
-      badges << content_tag(:span, 'Whitelisted', class: 'badge badge-success')
+      badges << content_tag(:span, "Whitelisted", class: "badge badge-success")
     end
-    badges.join(' ').html_safe
+    badges.join(" ").html_safe
   end
 
   def parameters_present?(keys)

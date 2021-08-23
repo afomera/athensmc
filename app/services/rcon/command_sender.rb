@@ -1,4 +1,4 @@
-require 'rcon/rcon'
+require "rcon/rcon"
 
 module Rcon
   class CommandSender
@@ -16,9 +16,9 @@ module Rcon
 
       if command_output
         ActionCable.server.broadcast(
-          'servers_channel',
+          "servers_channel",
           server_id: @server.id,
-          command_recieved: "#{@command}",
+          command_recieved: @command.to_s,
           html: "<div>#{command_output}</div>"
         )
       end

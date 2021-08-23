@@ -5,11 +5,12 @@ class CastsController < ApplicationController
 
   def index
     @cast =
-      Cast.order('created_at DESC').paginate(page: params[:page], per_page: 5)
+      Cast.order("created_at DESC").paginate(page: params[:page], per_page: 5)
     @cast_latest = Cast.last
   end
 
-  def show; end
+  def show
+  end
 
   def create
     # render plain: params[:cast].inspect
@@ -28,7 +29,8 @@ class CastsController < ApplicationController
     @cast = current_user.casts.build
   end
 
-  def edit; end
+  def edit
+  end
 
   def update
     if @cast.update(casts_params)
@@ -39,11 +41,11 @@ class CastsController < ApplicationController
   end
 
   def destroy
-    render text: 'Sorry this functionality is not built in!'
+    render text: "Sorry this functionality is not built in!"
   end
 
   def suggest
-    render plain: 'Hello Suggestions'
+    render plain: "Hello Suggestions"
   end
 
   private
@@ -70,9 +72,9 @@ class CastsController < ApplicationController
     authenticate_user!
 
     if current_user.admin
-      return
+      nil
     else
-      flash[:danger] = 'You do not have permission to do that'
+      flash[:danger] = "You do not have permission to do that"
       redirect_to casts_path
     end
   end

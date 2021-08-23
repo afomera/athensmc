@@ -6,29 +6,29 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable,
-         :registerable,
-         :recoverable,
-         :rememberable,
-         :trackable,
-         :validatable,
-         :masqueradable
+    :registerable,
+    :recoverable,
+    :rememberable,
+    :trackable,
+    :validatable,
+    :masqueradable
 
   before_validation :set_uuid, if: :minecraft_uuid_changed?
 
   validates :username,
-            uniqueness: { case_sensitive: false },
-            presence: true,
-            length: { in: 2..32 }
+    uniqueness: {case_sensitive: false},
+    presence: true,
+    length: {in: 2..32}
 
   validates :username,
-            format: {
-              message:
-                'can only contain letters, numbers, underscores or dashes.',
-              with: /\A[A-Za-z0-9\-\_]+\z/
-            }
+    format: {
+      message:
+        "can only contain letters, numbers, underscores or dashes.",
+      with: /\A[A-Za-z0-9\-_]+\z/
+    }
 
   validates :minecraft_uuid,
-            presence: true, on: :update, if: :minecraft_uuid_changed?
+    presence: true, on: :update, if: :minecraft_uuid_changed?
 
   has_many :revisions, dependent: :destroy
   has_many :casts, dependent: :destroy
@@ -41,22 +41,22 @@ class User < ApplicationRecord
   attr_accessor :dashed_uuid
 
   scope :filter_search,
-        (
-          lambda { |query|
-            return all unless query.present?
-            search(query)
-          }
-        )
+    (
+      lambda { |query|
+        return all unless query.present?
+        search(query)
+      }
+    )
 
   pg_search_scope(
     :search,
     against: %i[username email minecraft_uuid],
-    using: { tsearch: { prefix: true, negation: true } }
+    using: {tsearch: {prefix: true, negation: true}}
   )
 
   def whitelisted?
     # Check to make sure they have a whitelist request && that is approved.
-    whitelist_request && whitelist_request.status == 'approved'
+    whitelist_request && whitelist_request.status == "approved"
   end
 
   def dashed_uuid
@@ -66,7 +66,7 @@ class User < ApplicationRecord
         uuid[20..31]
       }"
     else
-      'No UUID associated'
+      "No UUID associated"
     end
   end
 

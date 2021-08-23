@@ -1,11 +1,15 @@
 class ServersController < ApplicationController
-  layout('new')
+  layout("new")
 
-  def rrr; end
+  def rrr
+  end
 
-  def direwolf20; end
+  def direwolf20
+  end
 
-  def snapshot; end
+  def snapshot
+  end
 
-  def vanilla; end
+  def vanilla
+  end
 end

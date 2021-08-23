@@ -5,18 +5,19 @@ class RevisionsController < ApplicationController
 
   def index
     @revision =
-      Revision.order('created_at DESC').paginate(
+      Revision.order("created_at DESC").paginate(
         page: params[:page], per_page: 5
       )
   end
 
-  def show; end
+  def show
+  end
 
   def create
     @revision = current_user.revisions.build(revision_params)
 
     if @revision.save
-      flash[:success] = 'Revision has been posted to the site.'
+      flash[:success] = "Revision has been posted to the site."
       redirect_to @revision
     else
       render :new
@@ -27,11 +28,12 @@ class RevisionsController < ApplicationController
     @revision = current_user.revisions.build
   end
 
-  def edit; end
+  def edit
+  end
 
   def update
     if @revision.update(revision_params)
-      flash[:success] = 'Revision has been updated.'
+      flash[:success] = "Revision has been updated."
       redirect_to @revision
     else
       render :edit
@@ -40,7 +42,7 @@ class RevisionsController < ApplicationController
 
   def destroy
     @revision.destroy
-    flash[:success] = 'The revision has been removed.'
+    flash[:success] = "The revision has been removed."
     redirect_to revisions_path
   end
 
@@ -58,9 +60,9 @@ class RevisionsController < ApplicationController
     authenticate_user!
 
     if current_user.admin
-      return
+      nil
     else
-      flash[:danger] = 'You do not have permission to do that'
+      flash[:danger] = "You do not have permission to do that"
       redirect_to revisions_path
     end
   end

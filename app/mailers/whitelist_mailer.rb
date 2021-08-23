@@ -1,7 +1,7 @@
 class WhitelistMailer < ApplicationMailer
   def request_received(user)
     @user = user
-    mail(to: 'andrea@zerlex.net', subject: '[AthensMC] New Whitelist Request')
+    mail(to: "andrea@zerlex.net", subject: "[AthensMC] New Whitelist Request")
   end
 
   def request_approved(whitelist_request)
@@ -9,7 +9,7 @@ class WhitelistMailer < ApplicationMailer
     @whitelist_request = whitelist_request
     mail(
       to: @user.email,
-      subject: '[AthensMC] Your whitelist request has been approved!'
+      subject: "[AthensMC] Your whitelist request has been approved!"
     )
   end
 
@@ -18,7 +18,7 @@ class WhitelistMailer < ApplicationMailer
     @whitelist_request = whitelist_request
     mail(
       to: @user.email,
-      subject: '[AthensMC] Your whitelist request has been denied.'
+      subject: "[AthensMC] Your whitelist request has been denied."
     )
   end
 
@@ -27,7 +27,7 @@ class WhitelistMailer < ApplicationMailer
     @whitelist_request = whitelist_request
     mail(
       to: @user.email,
-      subject: '[AthensMC] Your whitelist request has been deleted.'
+      subject: "[AthensMC] Your whitelist request has been deleted."
     )
   end
 end

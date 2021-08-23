@@ -1,6 +1,6 @@
 class ServersChannel < ApplicationCable::Channel
   def subscribed
-    stream_from 'servers_channel'
+    stream_from "servers_channel"
   end
 
   def unsubscribed
@@ -8,10 +8,10 @@ class ServersChannel < ApplicationCable::Channel
   end
 
   def send_command(params)
-    Rcon::CommandSender.new(params['server_id'], params['command']).send!
+    Rcon::CommandSender.new(params["server_id"], params["command"]).send!
   end
 
   def fetch_logs(params)
-    SSH::TailLogs.new(Server.find(params['server_id'])).perform
+    SSH::TailLogs.new(Server.find(params["server_id"])).perform
   end
 end

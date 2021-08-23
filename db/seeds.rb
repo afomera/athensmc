@@ -5,8 +5,8 @@ users.each do |username, email|
   User.create(
     username: username,
     email: "#{email}@athensmc.com",
-    password: 'password',
-    password_confirmation: 'password',
+    password: "password",
+    password_confirmation: "password",
     admin: true
   )
 
@@ -14,13 +14,13 @@ users.each do |username, email|
 end
 
 {
-  'General' => '#4ea1d3',
+  "General" => "#4ea1d3",
   # blue
-  'Modded Minecraft' => '#ff7473',
+  "Modded Minecraft" => "#ff7473",
   # red
-  'Snapshot/Vanilla Minecraft' => '#58C9B9',
+  "Snapshot/Vanilla Minecraft" => "#58C9B9",
   # teal / green
-  'Site Feedback' => '#F29B34'
+  "Site Feedback" => "#F29B34"
 }.each do |name, color|
   ForumCategory.where(name: name, color: color).first_or_create
 end
@@ -30,8 +30,8 @@ end
     User.create(
       username: Faker::Internet.user_name,
       email: Faker::Internet.email,
-      password: 'password',
-      password_confirmation: 'password',
+      password: "password",
+      password_confirmation: "password",
       admin: false
     )
 

@@ -21,25 +21,25 @@ class ForumThread < ApplicationRecord
   validates_associated :forum_posts
 
   scope :filter_search,
-        (
-          lambda { |query|
-            return all unless query.present?
-            search(query)
-          }
-        )
+    (
+      lambda { |query|
+        return all unless query.present?
+        search(query)
+      }
+    )
 
   scope :filter_by_category,
-        (
-          lambda { |query|
-            return all unless query.present?
-            where(forum_category_id: query)
-          }
-        )
+    (
+      lambda { |query|
+        return all unless query.present?
+        where(forum_category_id: query)
+      }
+    )
 
   pg_search_scope(
     :search,
     against: %i[subject slug sticky last_post_created_at forum_category_id],
-    associated_against: { forum_posts: %i[body], forum_category: %i[id name] },
-    using: { tsearch: { prefix: true, negation: true } }
+    associated_against: {forum_posts: %i[body], forum_category: %i[id name]},
+    using: {tsearch: {prefix: true, negation: true}}
   )
 end

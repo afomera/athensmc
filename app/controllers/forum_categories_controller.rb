@@ -1,7 +1,7 @@
 class ForumCategoriesController < ApplicationController
   before_action :authenticate_user!, except: %w[index]
   before_action :set_category
-  layout('new')
+  layout("new")
 
   def index
     if @category.present?
@@ -10,7 +10,7 @@ class ForumCategoriesController < ApplicationController
           .paginate(page: params[:page], per_page: params[:per_page])
     end
     authorize @forum_threads
-    render 'forum_threads/index'
+    render "forum_threads/index"
   end
 
   private

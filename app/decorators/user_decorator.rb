@@ -4,7 +4,7 @@ class UserDecorator < ApplicationDecorator
     if object.minecraft_uuid.present?
       "https://crafatar.com/avatars/#{object.minecraft_uuid}?overlay&size=64"
     else
-      'https://crafatar.com/avatars/606e2ff0ed7748429d6ce1d3321c7838?overlay&size=64'
+      "https://crafatar.com/avatars/606e2ff0ed7748429d6ce1d3321c7838?overlay&size=64"
     end
   end
 
@@ -16,7 +16,7 @@ class UserDecorator < ApplicationDecorator
   private
 
   def no_uuid_skin
-    'https://crafatar.com/renders/body/606e2ff0ed7748429d6ce1d3321c7838?scale=' \
-      '4&overlay'
+    "https://crafatar.com/renders/body/606e2ff0ed7748429d6ce1d3321c7838?scale=" \
+      "4&overlay"
   end
 end

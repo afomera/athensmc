@@ -1,8 +1,9 @@
 class PagesController < ApplicationController
   before_action :authenticate_user!, only: %i[stats]
-  layout('new')
+  layout("new")
 
-  def home; end
+  def home
+  end
 
   def stats
     @users_count = User.all.count

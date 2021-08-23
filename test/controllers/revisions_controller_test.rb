@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class RevisionsControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -6,23 +6,23 @@ class RevisionsControllerTest < ActionDispatch::IntegrationTest
     @user = users(:one)
   end
 
-  test 'should get index' do
+  test "should get index" do
     get revisions_path
     assert_response :success
   end
 
-  test 'should get show' do
+  test "should get show" do
     get revision_path(@revision)
     assert_response :success
   end
 
-  test 'should get new' do
+  test "should get new" do
     sign_in users(:admin)
     get new_revision_path
     assert_response :success
   end
 
-  test 'should get edit' do
+  test "should get edit" do
     sign_in users(:admin)
     get edit_revision_path(@revision)
     assert_response :success

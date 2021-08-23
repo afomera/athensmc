@@ -16,12 +16,12 @@ Rails.application.configure do
   config.consider_all_requests_local = true
 
   # Enable/disable caching. By default caching is disabled.
-  if Rails.root.join('tmp/caching-dev.txt').exist?
+  if Rails.root.join("tmp/caching-dev.txt").exist?
     config.action_controller.perform_caching = true
 
     config.cache_store = :memory_store
     config.public_file_server.headers = {
-      'Cache-Control' => "public, max-age=#{2.days.seconds.to_i}"
+      "Cache-Control" => "public, max-age=#{2.days.seconds.to_i}"
     }
   else
     config.action_controller.perform_caching = false
@@ -56,15 +56,15 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   # Set Mailer Address to LocalHost for development TODO: SET THIS IN PRODUCTION
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3_000 }
+  config.action_mailer.default_url_options = {host: "localhost", port: 3_000}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
+    address: "smtp.gmail.com",
     port: 587,
     domain: Rails.application.secrets.email_domain,
     user_name: Rails.application.secrets.email_address,
     password: Rails.application.secrets.email_password,
-    authentication: 'plain',
+    authentication: "plain",
     enable_starttls_auto: true
   }
   config.action_mailer.perform_deliveries = true

@@ -20,13 +20,13 @@ class Admin::UsersController < Admin::BaseController
   def whitelisted
     @users =
       User.joins(:whitelist_request).where(
-        'whitelist_requests.status IN (?)',
-        'approved'
+        "whitelist_requests.status IN (?)",
+        "approved"
       )
         .references(:whitelist_request)
     respond_to do |format|
       format.html do
-        flash[:danger] = 'Sorry only a JSON file is supported here'
+        flash[:danger] = "Sorry only a JSON file is supported here"
         redirect_to admin_whitelist_requests_path
       end
       format.json
@@ -36,7 +36,7 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def email_list
-    @users = User.all.order('id ASC')
+    @users = User.all.order("id ASC")
     authorize [:admin, @users]
   end
 end

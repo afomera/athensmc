@@ -5,7 +5,7 @@ class NotificationRelayJob < ApplicationJob
     html =
       ApplicationController.render(
         partial: template(notification),
-        locals: { notification: notification },
+        locals: {notification: notification},
         formats: %i[html]
       )
     ActionCable.server.broadcast(

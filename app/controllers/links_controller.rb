@@ -10,11 +10,11 @@ class LinksController < ApplicationController
       # Did the user enter in the UUID? IF so save it.
       unless current_user[:minecraft_uuid].nil?
         flash[:success] =
-          'Successfully saved your Minecraft account! If you have not already done so, you may apply for the server now.'
+          "Successfully saved your Minecraft account! If you have not already done so, you may apply for the server now."
         redirect_to whitelist_requests_path
       end
       if current_user[:minecraft_uuid].nil?
-        flash[:danger] = 'You need to enter a Minecraft Username'
+        flash[:danger] = "You need to enter a Minecraft Username"
         redirect_to links_minecraft_path
       end
     else

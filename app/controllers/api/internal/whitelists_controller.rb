@@ -6,8 +6,8 @@ module Api
       def show
         @users =
           User.joins(:whitelist_request).where(
-            'whitelist_requests.status IN (?)',
-            'approved'
+            "whitelist_requests.status IN (?)",
+            "approved"
           )
             .references(:whitelist_request)
       end

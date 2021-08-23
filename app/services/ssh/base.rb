@@ -6,7 +6,7 @@ module SSH
       @server = server
     end
 
-    def on(server, user = 'minecraft', &block)
+    def on(server, user = "minecraft", &block)
       options = {
         auth_methods: %w[publickey],
         forward_agent: true,
@@ -23,7 +23,7 @@ module SSH
         Net::SSH.start(server.ip, user, options) do |ssh|
           ssh.exec! "echo 'hello world'"
         end
-      rescue StandardError => e
+      rescue => e
         puts e
       end
 

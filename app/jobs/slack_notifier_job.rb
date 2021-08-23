@@ -1,4 +1,4 @@
-require 'slack-notifier'
+require "slack-notifier"
 
 # SlackNotifierJob
 class SlackNotifierJob < ApplicationJob
@@ -11,7 +11,7 @@ class SlackNotifierJob < ApplicationJob
     Slack::Notifier::LinkFormatter.format(message)
     notifier.ping(
       message,
-      icon_emoji: ':sparkles:', attachments: [more_user_info]
+      icon_emoji: ":sparkles:", attachments: [more_user_info]
     )
   end
 
@@ -21,7 +21,7 @@ class SlackNotifierJob < ApplicationJob
     @notifier ||=
       Slack::Notifier.new(
         Rails.application.secrets.slack_token,
-        username: 'AthensMC Whitelist System'
+        username: "AthensMC Whitelist System"
       )
   end
 
@@ -32,7 +32,7 @@ class SlackNotifierJob < ApplicationJob
   end
 
   def more_user_info
-    { fallback: fallback_message, text: text, color: 'good' }
+    {fallback: fallback_message, text: text, color: "good"}
   end
 
   def text
@@ -42,10 +42,10 @@ class SlackNotifierJob < ApplicationJob
   end
 
   def fallback_message
-    'View whitelist requests on the site'
+    "View whitelist requests on the site"
   end
 
   def whitelist_requests_link
-    '[View Whitelist Requests](https://athensmc.com/admin/whitelist-requests)'
+    "[View Whitelist Requests](https://athensmc.com/admin/whitelist-requests)"
   end
 end

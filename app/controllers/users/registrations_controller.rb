@@ -1,5 +1,5 @@
 module Users
   class RegistrationsController < Devise::RegistrationsController
-    layout('new')
+    layout("new")
   end
 end

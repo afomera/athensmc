@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class DownloadsControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -6,7 +6,7 @@ class DownloadsControllerTest < ActionDispatch::IntegrationTest
     sign_in @user
   end
 
-  test 'should get index' do
+  test "should get index" do
     get downloads_path
     assert_response :success
   end

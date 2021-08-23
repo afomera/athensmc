@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   private
 
   def by_resource
-    guest? ? 'unauthenticated' : 'application'
+    guest? ? "unauthenticated" : "application"
   end
 
   def guest?
@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
   end
 
   def user_not_authorized
-    flash[:alert] = 'You are not authorized to perform this action.'
+    flash[:alert] = "You are not authorized to perform this action."
     redirect_back(fallback_location: root_url)
   end
 
@@ -34,16 +34,16 @@ class ApplicationController < ActionController::Base
     # Check that the Minecraft UUID for the user isn't nil, if it is make them fill it out
     unless current_user.minecraft_uuid
       flash[:alert] =
-        'We need you to link a Minecraft Account before allowing you to continue.'
+        "We need you to link a Minecraft Account before allowing you to continue."
       redirect_to links_minecraft_path
     end
   end
 
   def check_admin_status?
     if current_user.admin?
-      return
+      nil
     else
-      redirect_to root_path, alert: 'You do not have permission to do that'
+      redirect_to root_path, alert: "You do not have permission to do that"
     end
   end
 

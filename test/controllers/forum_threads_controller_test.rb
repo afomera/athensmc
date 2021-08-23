@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class ForumThreadsControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -7,12 +7,12 @@ class ForumThreadsControllerTest < ActionDispatch::IntegrationTest
     sign_in @user
   end
 
-  test 'should get index' do
+  test "should get index" do
     get forum_threads_path
     assert_response :success
   end
 
-  test 'should get show' do
+  test "should get show" do
     get forum_thread_path(@forum_thread)
     assert_response :success
   end

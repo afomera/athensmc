@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class Admin::WhitelistRequestsControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -6,12 +6,12 @@ class Admin::WhitelistRequestsControllerTest < ActionDispatch::IntegrationTest
     sign_in(@user)
   end
 
-  test 'should get index' do
+  test "should get index" do
     get admin_whitelist_requests_path
     assert_response :success
   end
 
-  test 'should not get index when unauthenticated' do
+  test "should not get index when unauthenticated" do
     sign_out(@user)
     get admin_whitelist_requests_path
     assert_response :redirect

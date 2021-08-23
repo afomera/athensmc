@@ -14,19 +14,19 @@ class ForumThreads::ForumPostsController < ApplicationController
         Notification.create(
           recipient: user,
           actor: current_user,
-          action: 'posted',
+          action: "posted",
           notifiable: @forum_post
         )
       end
 
       @forum_thread.touch(:last_post_created_at)
-      flash[:success] = 'Successfully created your post'
+      flash[:success] = "Successfully created your post"
       redirect_to forum_thread_path(
-                    @forum_thread,
-                    anchor: "forum_post_#{@forum_post.id}"
-                  )
+        @forum_thread,
+        anchor: "forum_post_#{@forum_post.id}"
+      )
     else
-      flash[:alert] = 'Unable to save your post'
+      flash[:alert] = "Unable to save your post"
       redirect_to @forum_thread
     end
   end
@@ -38,10 +38,10 @@ class ForumThreads::ForumPostsController < ApplicationController
   def update
     authorize @forum_post
     if @forum_post.update(forum_post_params)
-      flash[:success] = 'Your post has been updated!'
+      flash[:success] = "Your post has been updated!"
       redirect_to @forum_thread
     else
-      flash[:alert] = 'An error occurred'
+      flash[:alert] = "An error occurred"
       render :edit
     end
   end

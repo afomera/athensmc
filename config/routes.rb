@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: 'users/registrations' }
-  resources :users, path: 'u', only: %w[show], param: :username
+  devise_for :users, controllers: {registrations: "users/registrations"}
+  resources :users, path: "u", only: %w[show], param: :username
 
-  get 'links/minecraft' => 'links#minecraft'
-  post 'links' => 'links#create'
+  get "links/minecraft" => "links#minecraft"
+  post "links" => "links#create"
 
   # API Endpoints
   namespace :api do
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :whitelist_requests, path: 'join'
+  resources :whitelist_requests, path: "join"
   resources :revisions
   resources :casts
 
@@ -35,10 +35,10 @@ Rails.application.routes.draw do
       end
     end
 
-    namespace :whitelist_requests, path: 'whitelist-requests' do
+    namespace :whitelist_requests, path: "whitelist-requests" do
       resources :charts, only: %w[index]
     end
-    resources :whitelist_requests, path: 'whitelist-requests' do
+    resources :whitelist_requests, path: "whitelist-requests" do
       collection do
         get :pending
         get :approved
@@ -50,27 +50,27 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :forum_threads, path: 'forum' do
-    resources :forum_posts, path: 'posts', module: :forum_threads
+  resources :forum_threads, path: "forum" do
+    resources :forum_posts, path: "posts", module: :forum_threads
     member do
       patch :sticky
       patch :unsticky
     end
     collection do
-      get 'category/:id', to: 'forum_categories#index', as: :forum_category
+      get "category/:id", to: "forum_categories#index", as: :forum_category
     end
   end
 
-  root 'pages#home'
+  root "pages#home"
 
-  get '/support', to: redirect('/subscribe')
-  get 'information' => 'pages#information'
-  get 'stats' => 'pages#stats'
-  get '/change_log', to: redirect('/revisions')
-  get 'subscribe' => 'pages#subscribe'
-  get 'servers' => 'servers#home'
-  get 'servers/vanilla' => 'servers#vanilla'
-  get 'servers/rrr' => 'servers#rrr'
-  get 'servers/direwolf20' => 'servers#direwolf20'
-  get 'servers/snapshot' => 'servers#snapshot'
+  get "/support", to: redirect("/subscribe")
+  get "information" => "pages#information"
+  get "stats" => "pages#stats"
+  get "/change_log", to: redirect("/revisions")
+  get "subscribe" => "pages#subscribe"
+  get "servers" => "servers#home"
+  get "servers/vanilla" => "servers#vanilla"
+  get "servers/rrr" => "servers#rrr"
+  get "servers/direwolf20" => "servers#direwolf20"
+  get "servers/snapshot" => "servers#snapshot"
 end

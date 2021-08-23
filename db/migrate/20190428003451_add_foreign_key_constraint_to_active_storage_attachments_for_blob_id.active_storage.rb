@@ -7,8 +7,8 @@ class AddForeignKeyConstraintToActiveStorageAttachmentsForBlobId < ActiveRecord:
 
     if table_exists?(:active_storage_blobs)
       add_foreign_key :active_storage_attachments,
-                      :active_storage_blobs,
-                      column: :blob_id
+        :active_storage_blobs,
+        column: :blob_id
     end
   end
 end

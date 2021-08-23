@@ -12,10 +12,10 @@ module RCON
       response = command(cvar_name)
       match = /^.+?\s(?:is|=)\s"([^"]+)".*$/.match response
       match = match[1]
-      if /\D/.match match
-        return match
+      if /\D/.match? match
+        match
       else
-        return match.to_i
+        match.to_i
       end
     end
   end
@@ -59,7 +59,7 @@ module RCON
 
       @packet_size = build_packet.length
 
-      return self
+      self
     end
 
     #
@@ -75,7 +75,7 @@ module RCON
 
       @packet_size = build_packet.length
 
-      return self
+      self
     end
 
     #
@@ -84,7 +84,7 @@ module RCON
     # that srcds actually needs.
     #
     def build_packet
-      return [@request_id, @command_type, @string1, @string2].pack(
+      [@request_id, @command_type, @string1, @string2].pack(
         "VVa#{@string1.length}a2"
       )
     end
@@ -94,7 +94,7 @@ module RCON
     def to_s
       packet = build_packet
       @packet_size = packet.length
-      return [@packet_size].pack('V') + packet
+      [@packet_size].pack("V") + packet
     end
   end
 
@@ -119,7 +119,7 @@ module RCON
     # before commands can be sent.
     #
 
-    def initialize(host = 'localhost', port = 25_575)
+    def initialize(host = "localhost", port = 25_575)
       @host = host
       @port = port
       @socket = nil
@@ -137,7 +137,7 @@ module RCON
       @return_packets = false
       response = super
       @return_packets = return_packets
-      return response
+      response
     end
 
     #
@@ -148,8 +148,8 @@ module RCON
     def command(command)
       if !@authed
         raise NetworkException.new(
-                'You must authenticate the connection successfully before sending commands.'
-              )
+          "You must authenticate the connection successfully before sending commands."
+        )
       end
 
       @packet = Packet::Source.new
@@ -160,14 +160,14 @@ module RCON
 
       if rpacket.command_type != Packet::Source::RESPONSE_NORM
         raise NetworkException.new(
-                "error sending command: #{rpacket.command_type}"
-              )
+          "error sending command: #{rpacket.command_type}"
+        )
       end
 
       if @return_packets
-        return rpacket
+        rpacket
       else
-        return rpacket.string1
+        rpacket.string1
       end
     end
 
@@ -189,15 +189,15 @@ module RCON
 
       if rpacket.command_type != Packet::Source::RESPONSE_AUTH
         raise NetworkException.new(
-                "error authenticating: #{rpacket.command_type}"
-              )
+          "error authenticating: #{rpacket.command_type}"
+        )
       end
 
       @authed = true
       if @return_packets
-        return rpacket
+        rpacket
       else
-        return true
+        true
       end
     end
 
@@ -226,8 +226,8 @@ module RCON
       total_size = 0
       request_id = 0
       type = 0
-      response = ''
-      message = ''
+      response = ""
+      message = ""
 
       loop do
         break unless IO.select([@socket], nil, nil, 10)
@@ -238,11 +238,11 @@ module RCON
 
         tmp = @socket.recv(14)
         return nil if tmp.nil?
-        size, request_id, type, message = tmp.unpack('VVVa*')
+        size, request_id, type, message = tmp.unpack("VVVa*")
         total_size += size
 
         # special case for authentication
-        break if message.sub! /\x00\x00$/, ''
+        break if message.sub!(/\x00\x00$/, "")
 
         response << message
 
@@ -252,7 +252,7 @@ module RCON
 
         tmp = @socket.recv(size - 10)
         response << tmp
-        response.sub! /\x00\x00$/, ''
+        response.sub!(/\x00\x00$/, "")
       end
 
       rpacket.packet_size = total_size
@@ -260,8 +260,8 @@ module RCON
       rpacket.command_type = type
 
       # strip nulls (this is actually the end of string1 and string2)
-      rpacket.string1 = response.sub /\x00\x00$/, ''
-      return rpacket
+      rpacket.string1 = response.sub(/\x00\x00$/, "")
+      rpacket
     end
 
     # establishes a connection to the server.
@@ -291,7 +291,7 @@ module RCON
     # before commands can be sent.
     #
 
-    def initialize(host = 'localhost', port = 25_575)
+    def initialize(host = "localhost", port = 25_575)
       @host = host
       @port = port
       @socket = nil
@@ -309,7 +309,7 @@ module RCON
       @return_packets = false
       response = super
       @return_packets = return_packets
-      return response
+      response
     end
 
     #
@@ -320,8 +320,8 @@ module RCON
     def command(command)
       if !@authed
         raise NetworkException.new(
-                'You must authenticate the connection successfully before sending commands.'
-              )
+          "You must authenticate the connection successfully before sending commands."
+        )
       end
 
       @packet = Packet::Source.new
@@ -332,14 +332,14 @@ module RCON
 
       if rpacket.command_type != Packet::Source::RESPONSE_NORM
         raise NetworkException.new(
-                "error sending command: #{rpacket.command_type}"
-              )
+          "error sending command: #{rpacket.command_type}"
+        )
       end
 
       if @return_packets
-        return rpacket
+        rpacket
       else
-        return rpacket.string1
+        rpacket.string1
       end
     end
 
@@ -360,15 +360,15 @@ module RCON
 
       if rpacket.command_type != Packet::Source::RESPONSE_AUTH
         raise NetworkException.new(
-                "error authenticating: #{rpacket.command_type}"
-              )
+          "error authenticating: #{rpacket.command_type}"
+        )
       end
 
       @authed = true
       if @return_packets
-        return rpacket
+        rpacket
       else
-        return true
+        true
       end
     end
 
@@ -397,15 +397,15 @@ module RCON
       total_size = 0
       request_id = 0
       type = 0
-      response = ''
-      message = ''
-      message2 = ''
+      response = ""
+      message = ""
+      message2 = ""
 
       tmp = @socket.recv(4)
       return nil if tmp.nil?
-      size = tmp.unpack('V1')
+      size = tmp.unpack("V1")
       tmp = @socket.recv(size[0])
-      request_id, type, message, message2 = tmp.unpack('V1V1a*a*')
+      request_id, type, message, message2 = tmp.unpack("V1V1a*a*")
       total_size = size[0]
 
       rpacket.packet_size = total_size
@@ -413,11 +413,11 @@ module RCON
       rpacket.command_type = type
 
       # strip nulls (this is actually the end of string1 and string2)
-      message.sub! /\x00\x00$/, ''
-      message2.sub! /\x00\x00$/, ''
+      message.sub!(/\x00\x00$/, "")
+      message2.sub!(/\x00\x00$/, "")
       rpacket.string1 = message
       rpacket.string2 = message2
-      return rpacket
+      rpacket
     end
 
     # establishes a connection to the server.
@@ -426,5 +426,5 @@ module RCON
     end
   end
 
-  class NetworkException < Exception; end
+  class NetworkException < RuntimeError; end
 end
