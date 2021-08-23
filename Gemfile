@@ -5,10 +5,10 @@ git_source(:github) do |repo_name|
    "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 6.0.0'
+gem 'rails', '~> 6.1.4'
 gem 'webpacker', '~> 4.0'
 gem 'puma', '~> 4.3.6'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 6.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 5.0'
 gem 'jquery-rails'
@@ -16,7 +16,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.9'
 gem 'redis', '~> 4.1'
 gem 'font-awesome-rails'
-gem 'draper', '~> 3.1.0'
+gem 'draper', '~> 4.0.2'
 
 group :development do
   gem 'dotenv-rails', require: 'dotenv/rails-now'
@@ -45,7 +45,7 @@ gem 'commonmarker'
 gem 'sanitize'
 gem 'kaminari', '~> 1.1.1'
 gem 'local_time', '~> 2.0'
-gem 'devise', '~> 4.6'
+gem 'devise', '~> 4.8'
 gem 'devise_masquerade', '~> 0.6.5'
 gem 'pundit', '~> 2.0.0'
 gem 'pg'
