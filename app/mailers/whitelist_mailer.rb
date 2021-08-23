@@ -1,7 +1,7 @@
 class WhitelistMailer < ApplicationMailer
   def request_received(user)
     @user = user
-    mail(to: 'andrew@zerlex.net', subject: '[AthensMC] New Whitelist Request')
+    mail(to: 'andrea@zerlex.net', subject: '[AthensMC] New Whitelist Request')
   end
 
   def request_approved(whitelist_request)
