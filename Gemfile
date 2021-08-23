@@ -7,16 +7,16 @@ end
 
 gem 'rails', '~> 6.0.0'
 gem 'webpacker', '~> 4.0'
-gem 'puma', '~> 4.3.6'
+gem 'puma', '~> 5'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 5.0'
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'jbuilder', '~> 2.9'
+gem 'jbuilder'
 gem 'redis', '~> 4.1'
 gem 'font-awesome-rails'
-gem 'draper', '~> 3.1.0'
+gem 'draper'
 
 group :development do
   gem 'dotenv-rails', require: 'dotenv/rails-now'
@@ -64,3 +64,5 @@ gem 'skylight'
 gem 'attr_encrypted', '~> 3.0', '>= 3.0.3'
 gem 'sshkey', '~> 2.0'
 gem 'net-ssh', '~> 5.2'
+
+gem "standard", "~> 1.2"
