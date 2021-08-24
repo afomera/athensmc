@@ -51,8 +51,9 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install --frozen-lockfile
-      - name: Standardrb Check
-        run: bundle exec standardrb
+
+      # - name: Standardrb Check
+      #   run: bundle exec standardrb
 
       # Uncomment to enable Brakeman checks in CI
       #     - name: Brakeman Check
