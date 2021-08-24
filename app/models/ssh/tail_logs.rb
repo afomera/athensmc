@@ -1,8 +1,8 @@
-module SSH
-  # SSH::TailLogs
+module Ssh
+  # Ssh::TailLogs
   #
   # This class allows us to tail the logs of the minecraft instances via SSH
-  class TailLogs < SSH::Base
+  class TailLogs < Ssh::Base
     LINES = 300
 
     def perform

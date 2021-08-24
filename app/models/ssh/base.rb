@@ -1,4 +1,4 @@
-module SSH
+module Ssh
   class Base
     attr_accessor(:server)
 
@@ -30,8 +30,7 @@ module SSH
       Net::SSH.start(server.ip, user, options) do |ssh|
         # ssh.exec_sc! "mkdir -p .hatch", self
         # Do the command here we called in the other class:
-        block
-          .call(ssh)
+        block.call(ssh)
       end
     end
   end
