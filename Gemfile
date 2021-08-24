@@ -5,11 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem "rails", "~> 6.0.0"
+gem "rails", "~> 6.1"
 gem "webpacker", "~> 4.0"
 gem "puma"
 gem "sass-rails"
-gem "uglifier", ">= 1.3.0"
 gem "coffee-rails", "~> 5.0"
 gem "jquery-rails"
 gem "turbolinks"
@@ -22,10 +21,11 @@ group :development do
   gem "dotenv-rails", require: "dotenv/rails-now"
   gem "web-console"
   gem "faker"
+  gem "listen"
 end
 
 group :development, :test do
-  gem "capybara", ">= 2.15"
+  gem "capybara"
   gem "selenium-webdriver"
   gem "byebug"
 end
@@ -50,7 +50,7 @@ gem "pg_search"
 gem "mojang_api", "~> 0.0.2"
 gem "friendly_id", "~> 5"
 gem "sucker_punch"
-gem "slack-notifier", "~> 1.5.1"
+gem "slack-notifier"
 gem "chartkick"
 gem "groupdate"
 gem "trix-rails", require: "trix"

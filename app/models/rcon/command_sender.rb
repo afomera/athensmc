@@ -1,5 +1,3 @@
-require "rcon/rcon"
-
 module Rcon
   class CommandSender
     attr_accessor :server, :command
@@ -9,7 +7,7 @@ module Rcon
     end
 
     def send!
-      rcon = ::RCON::Minecraft.new(@server.ip, @server.rcon_port)
+      rcon = ::Rcon::Minecraft.new(@server.ip, @server.rcon_port)
       rcon.auth(@server.rcon_password)
       Rails.logger.info(rcon)
       command_output = rcon.command(@command)
