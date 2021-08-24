@@ -25,7 +25,7 @@ group :development do
 end
 
 group :development, :test do
-  gem "capybara", ">= 2.15"
+  gem "capybara"
   gem "selenium-webdriver"
   gem "byebug"
 end
@@ -50,7 +50,7 @@ gem "pg_search"
 gem "mojang_api", "~> 0.0.2"
 gem "friendly_id", "~> 5"
 gem "sucker_punch"
-gem "slack-notifier", "~> 1.5.1"
+gem "slack-notifier"
 gem "chartkick"
 gem "groupdate"
 gem "trix-rails", require: "trix"
