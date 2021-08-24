@@ -21,7 +21,6 @@ gem "draper"
 group :development do
   gem "dotenv-rails", require: "dotenv/rails-now"
   gem "web-console"
-  gem "listen", "~> 3.0.5"
   gem "faker"
 end
 
@@ -34,7 +33,7 @@ end
 group :test do
   # gem 'minitest-rails', '~> 3.0'
   gem "webmock", "~> 3.6"
-  gem "vcr", "~> 4.0"
+  gem "vcr"
   gem "mocha", "~> 1.6"
 end
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
@@ -45,14 +44,14 @@ gem "kaminari"
 gem "local_time"
 gem "devise"
 gem "devise_masquerade"
-gem "pundit", "~> 2.0.0"
+gem "pundit", "~> 2.1"
 gem "pg"
 gem "pg_search"
 gem "mojang_api", "~> 0.0.2"
 gem "friendly_id", "~> 5"
-gem "sucker_punch", "~> 2.1"
+gem "sucker_punch"
 gem "slack-notifier", "~> 1.5.1"
-gem "chartkick", "~> 3.2.0"
+gem "chartkick"
 gem "groupdate"
 gem "trix-rails", require: "trix"
 # Record Tag helper gem for div_for
@@ -61,6 +60,6 @@ gem "record_tag_helper", github: "rails/record_tag_helper"
 gem "skylight"
 gem "attr_encrypted", "~> 3.0", ">= 3.0.3"
 gem "sshkey", "~> 2.0"
-gem "net-ssh", "~> 5.2"
+gem "net-ssh"
 
 gem "standard", "~> 1.2"
