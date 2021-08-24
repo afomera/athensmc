@@ -61,6 +61,6 @@ gem "record_tag_helper", github: "rails/record_tag_helper"
 gem "skylight"
 gem "attr_encrypted", "~> 3.0", ">= 3.0.3"
 gem "sshkey", "~> 2.0"
-gem "net-ssh", "~> 5.2"
+gem "net-ssh", "~> 6.1"
 
 gem "standard", "~> 1.2"
