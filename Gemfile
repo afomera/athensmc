@@ -52,7 +52,7 @@ gem "mojang_api", "~> 0.0.2"
 gem "friendly_id", "~> 5"
 gem "sucker_punch", "~> 2.1"
 gem "slack-notifier", "~> 1.5.1"
-gem "chartkick", "~> 3.2.0"
+gem "chartkick", "~> 3.4.0"
 gem "groupdate"
 gem "trix-rails", require: "trix"
 # Record Tag helper gem for div_for
