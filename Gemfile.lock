@@ -387,5 +387,8 @@ DEPENDENCIES
   webmock (~> 3.6)
   webpacker (~> 4.0)
 
+RUBY VERSION
+   ruby 2.7.4p191
+
 BUNDLED WITH
    2.1.4

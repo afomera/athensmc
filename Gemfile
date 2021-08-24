@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+ruby "2.7.4"
+
 gem "rails", "~> 6.1"
 gem "webpacker", "~> 4.0"
 gem "puma"
