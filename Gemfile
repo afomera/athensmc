@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem "rails", "~> 6.0.0"
+gem "rails", "~> 6.1"
 gem "webpacker", "~> 4.0"
 gem "puma"
 gem "sass-rails"
@@ -22,6 +22,7 @@ group :development do
   gem "dotenv-rails", require: "dotenv/rails-now"
   gem "web-console"
   gem "faker"
+  gem "listen"
 end
 
 group :development, :test do
