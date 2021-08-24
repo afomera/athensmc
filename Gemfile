@@ -21,7 +21,7 @@ gem "draper"
 group :development do
   gem "dotenv-rails", require: "dotenv/rails-now"
   gem "web-console"
-  gem "listen", "~> 3.0.5"
+  gem "listen", "~> 3.7.0"
   gem "faker"
 end
 
