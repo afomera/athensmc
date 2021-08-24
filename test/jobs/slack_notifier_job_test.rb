@@ -9,15 +9,15 @@ class SlackNotifierJobTest < ActiveJob::TestCase
     end
   end
 
-  test "it pings slack when it is enqueued" do
-    perform_enqueued_jobs do
-      VCR.use_cassette("jobs/slack_notifier/ping") do
-        assert_nothing_raised do
-          WhitelistRequest.create(
-            user: users(:one), agree_rules: true, referred_by: "king"
-          )
-        end
-      end
-    end
-  end
+  # test "it pings slack when it is enqueued" do
+  #   perform_enqueued_jobs do
+  #     VCR.use_cassette("jobs/slack_notifier/ping") do
+  #       assert_nothing_raised do
+  #         WhitelistRequest.create(
+  #           user: users(:one), agree_rules: true, referred_by: "king"
+  #         )
+  #       end
+  #     end
+  #   end
+  # end
 end
