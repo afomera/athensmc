@@ -8,7 +8,7 @@
 
         <% if parameters_present?(%w(q)) %>
           <%= link_to forum_threads_path,
-            class: "btn btn-outline-secondary ml-3" do %>
+            class: "btn btn-outline-secondary ms-3" do %>
             <span>Clear search results</span>
           <% end %>
         <% end %>
@@ -24,7 +24,7 @@
     <% if user_signed_in? %>
       <%= link_to new_forum_thread_path,
         class: "btn btn-outline-primary align-middle btn-block" do %>
-         <i class="align-middle mr-1" data-feather="plus-square"></i>
+         <i class="align-middle me-1" data-feather="plus-square"></i>
           New Topic
       <% end %>
     <% end %>
@@ -34,12 +34,12 @@
 
         <div class="list-group">
           <%= forum_link_to forum_threads_path, exact: true do %>
-            <%= fa_icon "circle", class: "mr-2" %> All
+            <%= fa_icon "circle", class: "me-2" %> All
           <% end %>
 
           <% ForumCategory.sorted.each do |category| %>
             <%= forum_link_to forum_category_forum_threads_path(category) do %>
-            <%= fa_icon "circle", class: "mr-2", style: "color: #{category.color}" %>
+            <%= fa_icon "circle", class: "me-2", style: "color: #{category.color}" %>
               <%= category.name %>
             <% end %>
           <% end %>

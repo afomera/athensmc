@@ -15,7 +15,7 @@ class ForumPostPolicy < ApplicationPolicy
     define_method("#{action}?") { owner?(forum_post) || user.admin? }
   end
 
-  %w[destroy].each { |action| define_method("#{action}?") { user.admin? } }
+  %w[destroy].each { |action| define_method("#{action}?") { owner?(forum_post) || user.admin? } }
 
   # ForumPostPolicy Scope
   class Scope < Scope
