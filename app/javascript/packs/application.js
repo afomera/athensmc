@@ -1,7 +1,8 @@
 /* eslint no-console:0 */
 
 require("@rails/ujs").start();
-require("turbolinks").start();
+
+import "@hotwired/turbo-rails";
 
 import "bootstrap";
 import "../stylesheets/application";
@@ -27,7 +28,7 @@ class Dispatcher {
   }
 }
 
-document.addEventListener("turbolinks:load", () => {
+document.addEventListener("turbo:load", () => {
   const dispatcher = new Dispatcher();
 
   dispatcher.feather();
