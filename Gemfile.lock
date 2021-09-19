@@ -340,7 +340,7 @@ DEPENDENCIES
   byebug
   capybara
   chartkick
-  coffee-rails (~> 5.0)
+  coffee-rails
   commonmarker
   devise
   devise_masquerade
