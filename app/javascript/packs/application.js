@@ -5,7 +5,6 @@ require("@rails/ujs").start();
 import "@hotwired/turbo-rails";
 
 import "bootstrap";
-import "../stylesheets/application";
 
 const feather = require("feather-icons");
 import RconConsole from "../servers/RconConsole";

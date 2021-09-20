@@ -102,6 +102,9 @@ GEM
     crack (0.4.5)
       rexml
     crass (1.0.6)
+    cssbundling-rails (0.2.1)
+      railties (>= 6.0.0)
+      sprockets-rails (>= 2.0.0)
     devise (4.8.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -342,6 +345,7 @@ DEPENDENCIES
   chartkick
   coffee-rails
   commonmarker
+  cssbundling-rails (~> 0.2.1)
   devise
   devise_masquerade
   dotenv-rails

@@ -64,3 +64,5 @@ gem "sshkey", "~> 2.0"
 gem "net-ssh"
 
 gem "standard", "~> 1.2"
+
+gem "cssbundling-rails", "~> 0.2.1"
