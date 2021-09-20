@@ -42,7 +42,7 @@ class ForumThreads::ForumPostsController < ApplicationController
       redirect_to @forum_thread
     else
       flash[:alert] = "An error occurred"
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container">
     <%= link_to root_path, class: 'navbar-brand' do %>
-      <%= image_tag('athensLogo.png', width: "171", height: "24", alt: "AthensMC Logo") %>
+      <%= image_tag('athensLogo.png', width: "171", height: "30", alt: "AthensMC Logo") %>
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -25,7 +25,7 @@
         <!-- Notifications -->
         <% if user_signed_in? %>
         <!-- TODO: Fix notifications styling -->
-        <li class="nav-item dropdown hidden" data-behavior="notifications" data-notifications='<%= render template: "notifications/index", formats: [:json] %>'>
+        <li class="nav-item dropdown d-none" data-behavior="notifications" data-notifications='<%= render template: "notifications/index", formats: [:json] %>'>
           <a class="nav-item nav-link dropdown-toggle me-md-2" href="#" id="bd-versions" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Notifications
           </a>
@@ -70,7 +70,7 @@
                 <%= link_to "Downloads", admin_downloads_path, class: "dropdown-item" %>
                 <%= link_to "Users", admin_users_path, class: "dropdown-item" %>
                 <%= link_to "Whitelist Requests", admin_whitelist_requests_path, class: "dropdown-item" %>
-                <%= link_to "Servers", admin_whitelist_requests_path, class: "dropdown-item" %>
+                <%= link_to "Servers", admin_servers_path, class: "dropdown-item" %>
               <% end %>
             </ul>
           </li>

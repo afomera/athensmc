@@ -3,7 +3,7 @@ module FormErrorsHelper
     return unless object.respond_to?(:errors) && object.errors.include?(field)
     errors = field_errors(object, field).join(", ")
 
-    content_tag(:span, errors, class: "form-group-error")
+    content_tag(:span, errors, class: "mb-3-error")
   end
 
   private

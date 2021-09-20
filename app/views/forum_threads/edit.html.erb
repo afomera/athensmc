@@ -6,15 +6,15 @@
   <h1 class="page-header">Edit Thread</h1>
 
   <%= form_for @forum_thread do |f| %>
-    <div class="form-group">
+    <div class="mb-3">
       <%= f.label :forum_category_id, "Choose a Category" %>
       <%= f.collection_select :forum_category_id, ForumCategory.sorted, :id, :name, {include_blank: "Pick a category..."}, {autofocus: true, class: "form-control"} %>
     </div>
 
-    <div class="form-group">
+    <div class="mb-3">
       <%= f.text_field :subject, placeholder: "What do you have to say?", class: "form-control input-lg" %>
     </div>
-    <div class="form-group">
+    <div class="mb-3">
       <%= f.submit "Update post title", class: "btn btn-primary" %>
     </div>
   <% end %>
