@@ -150,6 +150,9 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
+    jsbundling-rails (0.1.6)
+      railties (>= 6.0.0)
+      sprockets-rails (>= 2.0.0)
     kaminari (1.2.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.1)
@@ -353,6 +356,7 @@ DEPENDENCIES
   groupdate
   html-pipeline
   jbuilder
+  jsbundling-rails (~> 0.1.6)
   kaminari
   listen
   local_time
