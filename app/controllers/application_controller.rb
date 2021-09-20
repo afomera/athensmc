@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   def user_signed_in_is_whitelisted?
-    user_signed_in? && current_user.whitelisted?
+    user_signed_in? && current_user.member?
   end
   helper_method :user_signed_in_is_whitelisted?
 

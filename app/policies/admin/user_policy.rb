@@ -12,7 +12,7 @@ module Admin
       define_method("#{action}?") { user.admin? }
     end
 
-    def whitelisted?
+    def member?
       # Everyone should have access to view the whitelist
       true
     end

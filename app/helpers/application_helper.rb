@@ -48,8 +48,8 @@ module ApplicationHelper
     if user.admin?
       badges << content_tag(:span, "Admin", class: "badge bg-danger")
     end
-    if user.whitelisted?
-      badges << content_tag(:span, "Whitelisted", class: "badge bg-success")
+    if user.member?
+      badges << content_tag(:span, "Member", class: "badge bg-success")
     end
     badges.join(" ").html_safe
   end
