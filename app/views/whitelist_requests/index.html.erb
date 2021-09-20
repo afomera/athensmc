@@ -12,19 +12,16 @@
         <% if current_user.whitelist_request.status == "pending" %>
           <p class="text-info text-middle">
             <strong>Your request is still pending!</strong>
-            <i class="fa fa-2x fa-pencil-square"></i>
           </p>
         <% end %>
         <% if current_user.whitelist_request.status == "approved" %>
           <p class="text-success text-middle">
-            <strong>You are whitelisted!</strong>
-            <i class="fa fa-2x fa-check-square-o"></i>
+            <strong>You are a member!</strong>
           </p>
         <% end %>
         <% if current_user.whitelist_request.status == "denied" %>
             <p class="text-danger text-middle">
               <strong>Your application has been denied!</strong>
-              <i class="fa fa-2x fa-times-circle-o"></i>
             </p>
         <% end %>
       <% else %>

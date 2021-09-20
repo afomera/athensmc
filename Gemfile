@@ -8,14 +8,12 @@ end
 ruby "2.7.4"
 
 gem "rails", "~> 6.1"
-gem "webpacker", "~> 4.0"
 gem "puma"
 gem "sass-rails"
 gem "turbo-rails"
 gem "coffee-rails"
 gem "jbuilder"
 gem "redis", "~> 4.1"
-gem "font-awesome-rails"
 gem "draper"
 
 group :development do
@@ -64,3 +62,7 @@ gem "sshkey", "~> 2.0"
 gem "net-ssh"
 
 gem "standard", "~> 1.2"
+
+gem "cssbundling-rails", "~> 0.2.1"
+
+gem "jsbundling-rails", "~> 0.1.6"

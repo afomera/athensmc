@@ -22,15 +22,15 @@
 
   <td>
     <%= link_to approve_admin_whitelist_requests_path(whitelist_request.id), method: :patch do %>
-      <i class="fa fa-check fa-2x"></i>
+      Approve
     <% end %>
     &nbsp;
     <%= link_to deny_admin_whitelist_requests_path(whitelist_request.id), method: :patch do %>
-      <i class="fa fa-minus-square fa-2x"></i>
+      Deny
     <% end %>
     &nbsp;
     <%= link_to admin_whitelist_requests_path(whitelist_request.id), :method => :delete, data: { confirm: "Are you sure you want to delete #{whitelist_request.user.username}'s request?" } do %>
-      <i class="fa fa-trash-o fa-2x"></i>
+      Delete
     <% end %>
   </td>
 </tr>

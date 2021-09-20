@@ -58,13 +58,13 @@ class ForumThreadsController < ApplicationController
   end
 
   def sticky
-    @forum_thread.update_attributes(sticky: true)
+    @forum_thread.update(sticky: true)
     flash[:success] = "#{@forum_thread.subject} has been stickied!"
     redirect_to @forum_thread
   end
 
   def unsticky
-    @forum_thread.update_attributes(sticky: false)
+    @forum_thread.update(sticky: false)
     flash[:success] = "#{@forum_thread.subject} has been un-stickied!"
     redirect_to @forum_thread
   end

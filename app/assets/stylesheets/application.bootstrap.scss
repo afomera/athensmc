@@ -1,0 +1,254 @@
+$primary: #0055b0;
+@import "bootstrap/scss/bootstrap";
+@import "trix/dist/trix";
+
+.h-6 {
+  height: 24px;
+}
+
+.w-6 {
+  width: 24px;
+}
+
+.footer-link:hover .footer-logo {
+  transform: scale(1.02);
+}
+
+.footer-link:active .footer-logo {
+  transform: scale(0.98);
+}
+
+.footer-logo {
+  width: 160px;
+}
+
+select.form-control {
+  max-width: 100%;
+  padding-right: 24px;
+  padding-right: 8px\9;
+  background: #fff
+    url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAUCAMAAACzvE1FAAAADFBMVEUzMzMzMzMzMzMzMzMKAG/3AAAAA3RSTlMAf4C/aSLHAAAAPElEQVR42q3NMQ4AIAgEQTn//2cLdRKppSGzBYwzVXvznNWs8C58CiussPJj8h6NwgorrKRdTvuV9v16Afn0AYFOB7aYAAAAAElFTkSuQmCC")
+    no-repeat right 8px center;
+  background-image: none\9;
+  background-size: 8px 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.form-group-error {
+  background-color: theme-color-level("danger", -10);
+  border-radius: 0.25rem;
+  border: 1px solid theme-color-level("danger", -9);
+  color: theme-color-level("danger", 6);
+  display: inline-block;
+  font-size: 0.875rem;
+  margin-top: 0.15rem;
+  padding: 0.1rem 0.5rem;
+  position: relative;
+  z-index: 3;
+}
+
+.form-group-error:after,
+.form-group-error:before {
+  border: solid transparent;
+  bottom: 100%;
+  content: " ";
+  height: 0;
+  left: 10px;
+  pointer-events: none;
+  position: absolute;
+  width: 0;
+}
+
+.form-group-error:before {
+  border-bottom-color: theme-color-level("danger", -9);
+  border-width: 6px;
+  margin-left: -1px;
+}
+
+.form-group-error:after {
+  border-bottom-color: theme-color-level("danger", -10);
+  border-width: 5px;
+}
+
+.forum-thread-card {
+  display: block;
+  color: #666;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.forum-thread-card img {
+  width: 32px;
+  height: 32px;
+}
+
+.forum-thread-card .h3,
+.forum-thread-card h3 {
+  margin-top: 5px;
+}
+
+.forum-thread-card:hover {
+  text-decoration: none;
+  background-color: #ecf0f1;
+}
+
+.forum-thread-card,
+a {
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.forum-post-header {
+  padding-bottom: 10px;
+}
+
+.forum-post-header p {
+  line-height: 48px;
+}
+
+.forum-post-header img {
+  float: left;
+  margin-left: 25px;
+  width: 48px;
+  height: 48px;
+  margin-right: 10px;
+}
+
+.forum-post-body {
+  margin-left: 25px;
+  padding-bottom: 5px;
+}
+
+.original-poster {
+  background-color: #f6f6ee;
+}
+
+.forum_post {
+  padding-top: 5px;
+  margin-bottom: 20px;
+}
+
+.badge .badge-success {
+  text-transform: UPPERCASE;
+}
+
+.forum-thread-filters .list-group-item.active {
+  z-index: 2;
+  color: #fff;
+  background-color: #e9ecef;
+  border-color: #e9ecef;
+  color: #212529;
+}
+
+.forum-thread-preview {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.forum-thread-preview a {
+  color: #212529;
+}
+
+.forum-thread-preview .forum-thread-avatar {
+  margin-right: 20px;
+}
+
+.forum-thread-preview .forum-thread-details {
+  font-size: 80%;
+  margin-right: auto;
+  width: 75%;
+}
+
+.forum-thread-preview
+  .forum-thread-details
+  .thread-details
+  .forum-thread-category {
+  text-transform: uppercase;
+}
+
+.thread-posts-count .count {
+  font-size: 1.5em;
+  line-height: 1em;
+}
+
+.thread-posts-count .posts {
+  font-size: 80%;
+}
+
+.page-header {
+  padding-bottom: 3rem;
+  padding-top: 3rem;
+  text-align: center;
+}
+
+.page-title {
+  display: block;
+}
+
+.page-subtitle {
+  color: #6c757d;
+  margin-bottom: 0;
+}
+
+.page-actions {
+  margin-top: 1.5rem;
+}
+
+.profile-section-header {
+  margin-top: 0;
+}
+
+.search-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex: 100% 1;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.search-group .search-group-input {
+  display: inline-block;
+  flex-grow: 1;
+  vertical-align: middle;
+  width: auto;
+}
+
+.search-group .search-group-button {
+  margin-left: 1rem;
+}
+
+@media (min-width: 992px) {
+  .search-group .search-group-button {
+    min-width: 130px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .search-group .search-group-input {
+    display: block;
+    margin: 0 0 0.5rem !important;
+    width: 100%;
+  }
+
+  .search-group .btn:not(.search-group-button),
+  .search-group .search-group-button {
+    flex-grow: 1;
+    margin-left: 0 !important;
+  }
+
+  .search-group .btn:not(.search-group-button) {
+    margin-right: 0.5rem !important;
+  }
+}
+
+trix-editor {
+  min-height: 150px;
+}
