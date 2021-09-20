@@ -5,6 +5,14 @@ $fa-font-path: "font-awesome/fonts";
 @import "font-awesome/scss/font-awesome";
 @import "trix/dist/trix";
 
+.h-6 {
+  height: 24px;
+}
+
+.w-6 {
+  width: 24px;
+}
+
 .footer-link:hover .footer-logo {
   transform: scale(1.02);
 }

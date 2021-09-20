@@ -2,7 +2,10 @@
 <div class="well">
 
   <%= link_to forum_threads_path do %>
-    <%= fa_icon "arrow-left", text: "Back to the forum" %>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+    </svg>
+    Back to the forum
   <% end %>
 
   <h2 class="page-header">
@@ -27,7 +30,9 @@
         <% end %>
 
         <% if policy(@forum_thread).edit? %>
-          <%= link_to edit_forum_thread_path(@forum_thread) do %><%= fa_icon "pencil" %><% end %>
+          <%= link_to edit_forum_thread_path(@forum_thread) do %>
+            <%= fa_icon "pencil" %>
+          <% end %>
         <% end %>
       </div>
     <% end %>
