@@ -2,6 +2,7 @@ require("@rails/ujs").start();
 
 import "@hotwired/turbo-rails";
 import "bootstrap";
+import "trix";
 
 // import RconConsole from "app/javascript/servers/RconConsole";
 
