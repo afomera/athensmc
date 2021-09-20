@@ -1,47 +1,35 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container">
     <%= link_to root_path, class: 'navbar-brand' do %>
-      <%= image_tag('athensLogo.png', width: "171", height: "30", alt: "AthensMC Logo") %>
+      <%= image_tag('athensLogo.png', width: "171", height: "24", alt: "AthensMC Logo") %>
     <% end %>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-      data-target="#navbar-content" aria-controls="navbar-content"
-      aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <div class="collapse navbar-collapse" id="navbar-content">
-      <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
-
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item dropdown">
-           <a class="nav-link dropdown-toggle" norel id="nav-servers-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-             Servers
-           </a>
-          <div class="dropdown-menu" aria-labelledby="nav-servers-dropdown">
-            <%= link_to servers_rrr_path, class: "dropdown-item" do %>
-              <%= fa_icon "th-large fa-fw", text: "Rockets Rifles Robots" %>
-            <% end %>
-
-            <%= link_to servers_snapshot_path, class: "dropdown-item" do %>
-              <%= fa_icon "camera-retro fa-fw", text: "Snapshot Survival" %>
-            <% end %>
-          </div>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Servers
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "Rockets Rifles Robots", servers_rrr_path, class: "dropdown-item" %>
+            <%= link_to "Athens Eternal", servers_snapshot_path, class: "dropdown-item" %>
+          </ul>
         </li>
+        <%= link_to "Forums", forum_threads_path, class: "nav-item nav-link" %>
+      </ul>
 
-        <li class="nav-item">
-          <%= link_to forum_threads_path, class: "nav-link" do %>
-            <%= fa_icon "weixin", text: "Forums" %>
-          <% end %>
-        </li>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
-      <% if user_signed_in? %>
         <!-- Notifications -->
+        <% if user_signed_in? %>
         <!-- TODO: Fix notifications styling -->
         <li class="nav-item dropdown hidden" data-behavior="notifications" data-notifications='<%= render template: "notifications/index", formats: [:json] %>'>
           <a class="nav-item nav-link dropdown-toggle me-md-2" href="#" id="bd-versions" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= fa_icon "bell" %>
+            Notifications
           </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="notificationDropdown" data-behavior="notifications-list">
+          <div class="dropdown-menu" aria-labelledby="notificationDropdown" data-behavior="notifications-list">
             <!-- Notifications get inserted here -->
             <% Notification.includes(:notifiable, :recipient).recent.for_user(current_user).limit(5).each do |notification| %>
               <%= render partial: "notifications/#{notification.notifiable_type.underscore.pluralize}/#{notification.action}",
@@ -49,83 +37,47 @@
             <% end %>
           </div>
         </li>
+        <% end %>
         <!-- ./notifications -->
 
-        <li class="nav-item dropdown">
-           <a class="nav-link dropdown-toggle"
-             norel id="nav-user-dropdown"
-             data-bs-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
-             <%= image_tag(current_user.decorate.minecraft_avatar,
-              width: "24px", height: "24px", alt: "Minecraft Avatar Head") %>
-             <%= current_user.username %>
-           </a>
-          <div class="dropdown-menu" aria-labelledby="nav-user-dropdown">
-            <%= link_to user_path(current_user.username), class: "dropdown-item" do %>
-              <i class="fa fa-user"></i> &nbsp; View Profile
-            <% end %>
+        <% if !user_signed_in? %>
+          <%# Don't show the information to signed in users, as its nested in the dropdown %>
+          <%= link_to "Information", information_path, class: "nav-item nav-link" %>
+        <% end %>
 
-            <% link_to subscribe_path, class: "dropdown-item" do %>
-              <i class="fa fa-money"></i> &nbsp; Subscribe
-            <% end %>
+        <% if user_signed_in? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <div class="d-inline-flex align-items-center">
+                <%= image_tag(current_user.decorate.minecraft_avatar, width: "20px", height: "20px", alt: "Minecraft Avatar Head", class: "me-2") %>
+                <%= current_user.username %>
+              </div>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="userDropdown">
+              <% link_to "Subscribe", subscribe_path, class: "dropdown-item" %>
+              <%= link_to "Map Downloads", downloads_path, class: "dropdown-item" %>
+              <%= link_to "Rules & Information", information_path, class: "dropdown-item" %>
+              <li class="dropdown-divider"></li>
+              <%= link_to "View Profile", user_path(current_user.username), class: "dropdown-item" %>
+              <%= link_to "Edit Account", edit_user_registration_path, class: "dropdown-item" %>
+              <li class="dropdown-divider"></li>
+              <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
 
-            <%= link_to downloads_path, class: "dropdown-item" do %>
-              <i class="fa fa-cloud-download"></i> &nbsp; Map Downloads
-            <% end %>
+              <% if user_signed_in? && current_user.admin? %>
+                <div class="dropdown-divider"></div>
+                <li><h6 class="dropdown-header text-danger">Administration</h6></li>
 
-            <%= link_to information_path, class: "dropdown-item" do %>
-              <i class="fa fa-info-circle"></i> &nbsp; Rules & Information
-            <% end %>
-
-            <%= link_to edit_user_registration_path, class: "dropdown-item" do %>
-              <i class="fa fa-cog"></i> &nbsp; Edit Account Settings
-            <% end %>
-
-            <%= link_to destroy_user_session_path, method: :delete,
-              class: "dropdown-item" do %>
-              <i class="fa fa-sign-out"></i> &nbsp; Sign Out
-            <% end %>
-
-            <% if user_signed_in? && current_user.admin? %>
-              <div class="dropdown-divider"></div>
-
-              <%= link_to admin_downloads_path, class: "dropdown-item" do %>
-                Admin Downloads
+                <%= link_to "Downloads", admin_downloads_path, class: "dropdown-item" %>
+                <%= link_to "Users", admin_users_path, class: "dropdown-item" %>
+                <%= link_to "Whitelist Requests", admin_whitelist_requests_path, class: "dropdown-item" %>
+                <%= link_to "Servers", admin_whitelist_requests_path, class: "dropdown-item" %>
               <% end %>
-
-              <%= link_to admin_users_path, class: "dropdown-item" do %>
-                Admin Users
-              <% end %>
-
-              <%= link_to admin_whitelist_requests_path, class: "dropdown-item" do %>
-                Admin Whitelist Requests
-              <% end %>
-
-              <%= link_to admin_servers_path, class: "dropdown-item" do %>
-                Admin Servers
-              <% end %>
-            <% end %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to information_path, class: "nav-link" do %>
-            <i class="fa fa-info-circle"></i> &nbsp; Support
-          <% end %>
-        </li>
-
-        <li class="nav-item">
-          <%= link_to new_user_session_path, class: "nav-link" do %>
-            <%= fa_icon "sign-in", text: "Sign In" %>
-          <% end %>
-        </li>
-
-        <li class="nav-item">
-          <%= link_to new_user_registration_path, class: "nav-link" do %>
-            <%= fa_icon "user-plus", text: "Sign Up" %>
-          <% end %>
-        </li>
-      <% end %>
+            </ul>
+          </li>
+        <% else %>
+          <%= link_to "Sign In", new_user_session_path, class: "nav-item nav-link" %>
+          <%= link_to "Sign Up", new_user_registration_path, class: "nav-item nav-link" %>
+        <% end %>
       </ul>
     </div>
   </div>
