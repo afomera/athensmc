@@ -17,7 +17,7 @@
           <% end %>
 
           <% if policy(forum_post).destroy? %>
-            <%= link_to forum_thread_forum_post_path(forum_post.forum_thread, forum_post),
+            <%= button_to forum_thread_forum_post_path(forum_post.forum_thread, forum_post),
               method: :delete, data: { confirm: 'Are you sure you want to delete this? This cannot be undone.' } do %>
               <%= fa_icon "times" %>
             <% end %>

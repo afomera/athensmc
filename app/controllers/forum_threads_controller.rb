@@ -21,7 +21,7 @@ class ForumThreadsController < ApplicationController
       redirect_to @forum_thread
     else
       flash[:alert] = "An unknown error occurred, please try again."
-      render "edit"
+      render "edit", status: :unprocessable_entity
     end
   end
 
@@ -42,7 +42,7 @@ class ForumThreadsController < ApplicationController
       redirect_to @forum_thread
     else
       flash[:alert] = "Please try again"
-      render action: :new
+      render action: :new, status: :unprocessable_entity
     end
   end
 

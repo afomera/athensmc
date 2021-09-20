@@ -11,18 +11,18 @@
           </ul>
         </div>
       <% end %>
-        <div class="form-group">
+        <div class="mb-3">
           <%= f.label :referred_by, 'How did you hear about AthensMC?' %><br>
           <%= f.text_field :referred_by, class: 'form-control' %>
           <em>If you heard from a friend please enter their username.</em>
         </div>
 
-        <div class="form-group">
+        <div class="mb-3">
           <%= f.check_box :agree_rules, as: "Community Rules" %>
           <%= f.label :agree_rules, "Do you Agree to the Community Rules?" %><br>
         </div>
 
-        <div class="form-group">
+        <div class="mb-3">
           <%= f.submit "Request Access to the Servers", class: "btn btn-primary", :onclick => "validateCheckbox()" %>
         </div>
     <% end %>

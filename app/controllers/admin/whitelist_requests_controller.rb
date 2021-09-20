@@ -26,7 +26,7 @@ class Admin::WhitelistRequestsController < Admin::BaseController
 
   # For Approving Whitelist Requests via patch
   def approve
-    @whitelist_request.update_attributes(
+    @whitelist_request.update(
       approved_on: Time.now, status: "approved", actor: current_user
     )
     flash[:success] =
@@ -37,7 +37,7 @@ class Admin::WhitelistRequestsController < Admin::BaseController
 
   # For denying whitelist requests via a patch method
   def deny
-    @whitelist_request.update_attributes(
+    @whitelist_request.update(
       denied_on: Time.now, status: "denied", actor: current_user
     )
     flash[:success] =

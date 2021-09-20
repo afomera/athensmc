@@ -1,48 +1,48 @@
 <%= form_for([:admin, server]) do |f| %>
-  <div class="form-group">
+  <div class="mb-3">
     <%= f.label :name %>
     <%= f.text_field :name, :placeholder => "Name", class: "form-control" %>
     <%= error_message_on(f.object, :name) %>
   </div>
 
-  <div class="form-group">
+  <div class="mb-3">
     <%= f.label :ip %>
     <%= f.text_field :ip, :placeholder => "192.99.9.53", class: "form-control" %>
     <%= error_message_on(f.object, :ip) %>
   </div>
 
-  <div class="form-group">
+  <div class="mb-3">
     <%= f.label :game_port %>
     <%= f.number_field :game_port, :placeholder => "25565", class: "form-control" %>
     <%= error_message_on(f.object, :game_port) %>
   </div>
 
-  <div class="form-group">
+  <div class="mb-3">
     <%= f.label :rcon_port %>
     <%= f.number_field :rcon_port, :placeholder => "25585", class: "form-control" %>
     <%= error_message_on(f.object, :rcon_port) %>
   </div>
 
-  <div class="form-group">
+  <div class="mb-3">
     <%= f.label :rcon_password %>
     <%= f.text_field :rcon_password, :placeholder => "hunter2", class: "form-control" %>
     <%= error_message_on(f.object, :rcon_password) %>
   </div>
 
 
-  <div class="form-group">
+  <div class="mb-3">
     <%= f.label :query_port %>
     <%= f.number_field :query_port, :placeholder => "25575", class: "form-control" %>
     <%= error_message_on(f.object, :query_port) %>
   </div>
 
-  <div class="form-group">
+  <div class="mb-3">
     <%= f.label :ssh_username %>
     <%= f.text_field :ssh_username, :placeholder => "minecraft", class: "form-control" %>
     <%= error_message_on(f.object, :ssh_username) %>
   </div>
 
-  <div class="form-group">
+  <div class="mb-3">
     <%= f.label :directory %>
     <%= f.text_field :directory, :placeholder => "/home/minecraft/servers/devteam", class: "form-control" %>
     <%= error_message_on(f.object, :directory) %>

@@ -13,7 +13,7 @@ class Admin::DownloadsController < Admin::BaseController
       flash[:success] = "Download has been added!"
       redirect_to admin_downloads_path
     else
-      render "new"
+      render "new", status: :unprocessable_entity
     end
   end
 
@@ -26,7 +26,7 @@ class Admin::DownloadsController < Admin::BaseController
       flash[:success] = "Download has been updated!"
       redirect_to admin_downloads_path
     else
-      render "edit"
+      render "edit", status: :unprocessable_entity
     end
   end
 

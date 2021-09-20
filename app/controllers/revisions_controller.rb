@@ -20,7 +20,7 @@ class RevisionsController < ApplicationController
       flash[:success] = "Revision has been posted to the site."
       redirect_to @revision
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -36,7 +36,7 @@ class RevisionsController < ApplicationController
       flash[:success] = "Revision has been updated."
       redirect_to @revision
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

@@ -15,7 +15,7 @@ module Admin
         flash[:success] = "Server has been added"
         redirect_to admin_servers_path
       else
-        render :new
+        render :new, status: :unprocessable_entity
       end
     end
 
@@ -34,7 +34,7 @@ module Admin
         flash[:success] = "Server has been updated"
         redirect_to admin_servers_path
       else
-        render :edit
+        render :edit, status: :unprocessable_entity
       end
     end
 

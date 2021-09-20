@@ -6,13 +6,13 @@
   <td><%= whitelist_request.referred_by %></td>
   <td>
     <% if whitelist_request.status == "approved" %>
-      <span class="badge badge-success">Approved</span>
+      <span class="badge bg-success">Approved</span>
     <% end %>
     <% if whitelist_request.status == "pending" %>
-      <span class="badge badge-warning">Pending</span>
+      <span class="badge bg-warning">Pending</span>
     <% end %>
     <% if whitelist_request.status == "denied" %>
-      <span class="badge badge-danger">Denied</span>
+      <span class="badge bg-danger">Denied</span>
     <% end %>
   </td>
 

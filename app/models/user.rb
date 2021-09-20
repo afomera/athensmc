@@ -54,7 +54,7 @@ class User < ApplicationRecord
     using: {tsearch: {prefix: true, negation: true}}
   )
 
-  def whitelisted?
+  def member?
     # Check to make sure they have a whitelist request && that is approved.
     whitelist_request && whitelist_request.status == "approved"
   end

@@ -1,44 +1,42 @@
 <% page_title "Home" %>
 
-	<div class="jumbotron text-center mb-4">
-	  <h1 class="display-4">Want a great gaming community?</h1>
-	  <p class="lead">We want all of our players to enjoy themselves.</p>
-		<p>
-			We offer both <%= link_to "Modded Minecraft", servers_rrr_path,
-				class: "lead-link" %> or <%= link_to "vanilla snapshot survival",
-					servers_snapshot_path, class: "lead-link" %> options.
-		</p>
-	  <%= link_to "Learn more", information_path, class: 'btn btn-lg btn-primary' %>
-	</div>
-
-	<div class="row">
-		<div class="col-md-12">
-			<div class="card card-body mb-4">
-				<div class="media">
-					<%= image_tag "/../images/rockets-rifles-robots/rrr_cube.png",
-						alt: "Rockets Rifles Robots Cubed Image", class: "img-fluid pull-left" %>
-
-					<div class="media-body">
-						<h1 class="display-5">Rockets Rifles Robots</h1>
-						<p class="lead">A customized modded Minecraft experience</p>
-						<p>Do you dream of piloting a spaceship across the stars? Of building a super scientist’s lab and delving into technical mysteries and designing fantastic machines? Do you hope to have an army of robot minions, waiting to carry out your nefarious schemes?</p>
-
-						<p>Or do you just want a bunch of guns to shoot zombie hordes with?</p>
-
-						<p>If any of those things sound like fun, then Rockets, Rifles and Robots is the pack for you. This pack has a technical/industrial focus and all kinds of mods - old friends with exciting updated features, and new favorites! Join us and explore everything our signature mod pack has to offer. </p>
-						<%= link_to "Learn more about Rockets Rifles Robots", servers_rrr_path, class: "btn btn-success" %>
-					</div>
-				</div>
-			</div>
+<div class="px-4 py-5 my-5 text-center">
+	<h1 class="display-4 fw-bold">Want a great gaming community?</h1>
+	<div class="col-lg-6 mx-auto">
+		<p class="lead mb-4">We want all of our players to enjoy themselves and offer both <%= link_to "modded Minecraft", servers_rrr_path, class: "lead-link" %> or
+			<%= link_to "vanilla Minecraft", servers_snapshot_path, class: "lead-link" %> options</p>
+		<div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+			<%= link_to "Learn more", information_path, class: "btn btn-primary btn-lg" %>
 		</div>
 	</div>
+</div>
 
-	<div class="row justify-content-center">
-		<div class="col-md-12 text-center">
-			<div class="card card-body mb-4">
-				<h1 class="display-5">Are you ready to give us a try?</h1>
-				<p class="lead">Check out the Community Information to learn what you need to do to join!</p>
-				<%= link_to "Community Information", information_path, class: "btn btn-primary" %>
-			</div>
+<div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+	<div class="col-10 col-sm-8 col-lg-6">
+		<%= image_tag "/../images/rockets-rifles-robots/rrr_cube.png",
+						alt: "Rockets Rifles Robots Cubed Image", class: "d-block mx-lg-auto img-fluid", loading: "lazy" %>
+	</div>
+	<div class="col-lg-6">
+		<h1 class="display-5 fw-bold lh-1 mb-3">Rockets Rifles Robots</h1>
+		<p class="lead">A customized modded Minecraft experience</p>
+		<p>Do you dream of piloting a spaceship across the stars? Of building a super scientist’s lab and delving into technical mysteries and designing fantastic machines? Do you hope to have an army of robot minions, waiting to carry out your nefarious schemes?</p>
+
+		<p>Or do you just want a bunch of guns to shoot zombie hordes with?</p>
+
+		<p>If any of those things sound like fun, then Rockets, Rifles and Robots is the pack for you. This pack has a technical/industrial focus and all kinds of mods - old friends with exciting updated features, and new favorites! Join us and explore everything our signature mod pack has to offer. </p>
+		<div class="d-grid gap-2 d-md-flex justify-content-md-start">
+			<%= link_to "Learn more about Rockets Rifles Robots", servers_rrr_path, class: "btn btn-secondary btn-lg px-4 me-md-2" %>
 		</div>
 	</div>
+</div>
+
+
+<div class="px-4 py-5 my-5 text-center">
+	<h1 class="display-4 fw-bold">Ready to give us a try?</h1>
+	<div class="col-lg-6 mx-auto">
+		<p class="lead mb-4">Check out the Community Information to learn what you need to do to join!</p>
+		<div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+			<%= link_to "Community Information", information_path, class: "btn btn-primary btn-lg" %>
+		</div>
+	</div>
+</div>
