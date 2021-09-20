@@ -26,18 +26,17 @@
 			<hr />
 			<p>
 			<div class="pull-right">
-				<i class="fa fa-user"></i>
 				<strong>
 						<%= link_to revision.user.username, user_path(revision.user.username) %>
-				</strong> | <i class="fa fa-clock-o"></i> Posted <strong><%= local_time_ago(revision.created_at) %></strong>
+				</strong> | Posted <strong><%= local_time_ago(revision.created_at) %></strong>
 			</div>
 			<%= link_to revision_path(revision) do %>
-			<i class="fa fa-link"></i> Permalink
+				Permalink
 			<% end %>
 			<% if current_user.try(:admin?) %>
 				&nbsp; | &nbsp;
 				<%= link_to edit_revision_path(revision) do %>
-				<i class="fa fa-pencil-square-o"></i> Edit
+					Edit
 				<% end %>
 			<% end %>
 		</div>

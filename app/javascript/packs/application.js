@@ -6,7 +6,6 @@ import "@hotwired/turbo-rails";
 
 import "bootstrap";
 
-const feather = require("feather-icons");
 import RconConsole from "../servers/RconConsole";
 
 class Dispatcher {
@@ -21,16 +20,11 @@ class Dispatcher {
         break;
     }
   }
-
-  feather() {
-    feather.replace();
-  }
 }
 
 document.addEventListener("turbo:load", () => {
   const dispatcher = new Dispatcher();
 
-  dispatcher.feather();
   dispatcher.route();
   // $('[data-toggle="tooltip"]').tooltip();
   // $('[data-toggle="popover"]').popover();

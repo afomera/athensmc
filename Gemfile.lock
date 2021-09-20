@@ -133,8 +133,6 @@ GEM
       i18n (>= 1.6, < 2)
     ffi (1.15.3)
     ffi (1.15.3-x86-mingw32)
-    font-awesome-rails (4.7.0.7)
-      railties (>= 3.2, < 7)
     friendly_id (5.4.2)
       activerecord (>= 4.0.0)
     globalid (0.5.2)
@@ -351,7 +349,6 @@ DEPENDENCIES
   dotenv-rails
   draper
   faker
-  font-awesome-rails
   friendly_id (~> 5)
   groupdate
   html-pipeline

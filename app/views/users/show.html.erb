@@ -10,8 +10,11 @@
 
     <h3><%= user_badges(@user) %></h3>
 
-    <h5>
-      <%= fa_icon "clock-o" %> Joined on <%= @user.created_at.strftime("%B %d %Y") %>.
+    <h5 class="d-flex align-items-center justify-content-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      Joined on <%= @user.created_at.strftime("%B %d, %Y") %>
     </h5>
     <% if user_signed_in? && current_user.admin? %>
       <small class="text-muted"><%= @user.dashed_uuid %></small>

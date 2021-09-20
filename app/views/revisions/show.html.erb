@@ -14,19 +14,19 @@
 			<hr />
 			<p>
 			<div class="pull-right">
-				<i class="fa fa-user"></i> <strong>
+				<strong>
 					<%= @revision.user.username %>
 
-				</strong> | <i class="fa fa-clock-o"></i> Posted <strong><%= local_time_ago(@revision.created_at) %></strong>
+				</strong> | Posted <strong><%= local_time_ago(@revision.created_at) %></strong>
 			</div>
 			<% if current_user.try(:admin?) %>
 				<%= link_to edit_revision_path(@revision) do %>
-					<i class="fa fa-pencil-square-o"></i> Edit
+					Edit
 				<% end %>
 				&nbsp; | &nbsp;
 				<%= link_to revision_path(@revision), method: :delete,
             		  data: { confirm: 'Are you sure?' } do %>
-					<i class="fa fa-trash-o"></i> Delete
+					Delete
 				<% end %>
 			<% end %>
 		</div>

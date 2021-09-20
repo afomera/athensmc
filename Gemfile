@@ -15,7 +15,6 @@ gem "turbo-rails"
 gem "coffee-rails"
 gem "jbuilder"
 gem "redis", "~> 4.1"
-gem "font-awesome-rails"
 gem "draper"
 
 group :development do
