@@ -14,7 +14,6 @@ gem "turbo-rails"
 gem "coffee-rails"
 gem "jbuilder"
 gem "redis", "~> 4.1"
-gem "draper"
 
 group :development do
   gem "dotenv-rails", require: "dotenv/rails-now"

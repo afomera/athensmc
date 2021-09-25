@@ -1,6 +1,6 @@
 <%= link_to forum_thread_path(notification.notifiable.forum_thread), class: "mt-1 dropdown-item notification#{" unread" unless notification.read_at?}" do %>
   <span class="text-muted">
-    <%= image_tag notification.actor.decorate.minecraft_avatar, height: 24, width: 24, class: "avatar" %>
+    <%= image_tag notification.actor.minecraft_avatar, height: 24, width: 24, class: "avatar" %>
     <strong><%= notification.actor.username %></strong> <%= notification.action %> a reply on
     <strong><%= notification.notifiable.forum_thread.subject %></strong>!
   </span>

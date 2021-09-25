@@ -2,7 +2,7 @@
   <div class="forum-post-header">
     <%= link_to user_path(forum_post.user.username) do %>
 
-      <%= image_tag forum_post.user.decorate.minecraft_avatar, alt: "Minecraft Avatar Head" %>
+      <%= image_tag forum_post.user.minecraft_avatar, alt: "Minecraft Avatar Head" %>
       <p class="text-muted">
         <strong><%= forum_post.user.username %></strong>
     <% end %>

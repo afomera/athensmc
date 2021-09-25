@@ -3,7 +3,7 @@
    <div class="row">
      <div class="col">
        <%= link_to user_path(forum_post.user.username) do %>
-         <%= image_tag forum_post.user.decorate.minecraft_avatar, class: "rounded avatar", width: 24, height: 24 %>
+         <%= image_tag forum_post.user.minecraft_avatar, class: "rounded avatar", width: 24, height: 24 %>
          <strong><%= forum_post.user.username %></strong>
       <% end %>
       <small> commented on <%= link_to local_time(forum_post.created_at, "%b %d, %Y"), forum_thread_url(@forum_thread, anchor: "forum_post_#{forum_post.id}"), class: "plain-link" %>:</small>

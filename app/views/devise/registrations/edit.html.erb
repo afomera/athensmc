@@ -48,7 +48,7 @@
         </div>
         <hr />
         <div class="mb-3">
-            <%= image_tag current_user.decorate.minecraft_avatar, style: "float:right", height: "64px" %>
+            <%= image_tag current_user.minecraft_avatar, style: "float:right", height: "64px" %>
             <%= f.label :minecraft_uuid, "Minecraft UUID" %> <br />
             <%= current_user.dashed_uuid %> <br />
             <% if current_user.minecraft_uuid.nil? %>
