@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
   before_action :authenticate_user!, only: %i[stats]
-  layout("new")
 
   def home
   end

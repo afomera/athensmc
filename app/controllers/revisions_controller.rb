@@ -4,10 +4,7 @@ class RevisionsController < ApplicationController
   before_action :check_admin_status, only: %i[new edit create destroy update]
 
   def index
-    @revision =
-      Revision.order("created_at DESC").paginate(
-        page: params[:page], per_page: 5
-      )
+    @revision = Revision.order("created_at DESC").paginate(page: params[:page], per_page: 5)
   end
 
   def show

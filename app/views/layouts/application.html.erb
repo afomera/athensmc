@@ -4,54 +4,49 @@
     <title><%= yield(:title) %> | AthensMC</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    "application", media: "all", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
-
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
     <%= favicon_link_tag "/images/favicon.ico" %>
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
-  <body class="<%= body_classes %>"  data-page="<%= body_data_page %>">
 
-  <%= render("shared/masquerade") %>
-  <%= render("shared/browse-happy") %>
-  <%= render("shared/navbar")%>
-  <div class="container">
-    <%= render('shared/flash/app') %>
+  <body class="<%= body_classes %>" data-page="<%= body_data_page %>">
+    <%= render("shared/masquerade") %>
+    <%= render("shared/browse-happy") %>
+    <%= render("shared/navbar") %>
+    <%= render("shared/flash/app") %>
 
-  	<% unless controller_name == 'links' && action_name == 'minecraft'  %>
-      <% if user_signed_in? %>
-        <% if current_user.minecraft_uuid.blank? %>
-  	     <div class="alert alert-warning alert-dismissible fade show mt-4" role="alert">
-           <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+    <div class="container">
+      <% unless controller_name == 'links' && action_name == 'minecraft'  %>
+        <% if user_signed_in? %>
+          <% if current_user.minecraft_uuid.blank? %>
+          <div class="alert alert-warning alert-dismissible fade show mt-4" role="alert">
+            <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
 
-            <h4 class="alert-heading">
-               Please Link Your Mojang Account
-             </h4>
-             <p>
-               It seems your Minecraft account hasn't been linked to your account!
-               We need a linked Minecraft account to allow you to apply for the whitelist.
-               For more information about why we need to link please click
-               <%= link_to "here.", root_path, class: "alert-link" %>
-             </p>
-             <p class="mb-1">
-               <%= link_to "Link Minecraft Account", links_minecraft_path,
-                class: "btn btn-primary" %>
-             </p>
-           </div>
+              <h4 class="alert-heading">
+                Please Link Your Mojang Account
+              </h4>
+              <p>
+                It seems your Minecraft account hasn't been linked to your account!
+                We need a linked Minecraft account to allow you to apply for the whitelist.
+                For more information about why we need to link please click
+                <%= link_to "here.", root_path, class: "alert-link" %>
+              </p>
+              <p class="mb-1">
+                <%= link_to "Link Minecraft Account", links_minecraft_path,
+                  class: "btn btn-primary" %>
+              </p>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
-    <% end #End Check for Link/minecraft controller and action %>
+      <% end #End Check for Link/minecraft controller and action %>
 
-    <div class="card card-body mt-4">
-      <%= yield %>
+      <div class="mt-4"><%= yield %></div>
     </div>
-  </div>
 
-    <%= render "shared/footer" %>
+    <%= render("shared/footer") %>
     <%= render("shared/google_analytics")%>
   </body>
 </html>

@@ -70,12 +70,9 @@ class CastsController < ApplicationController
 
   def check_admin_status
     authenticate_user!
+    return if current_user.admin?
 
-    if current_user.admin
-      nil
-    else
-      flash[:danger] = "You do not have permission to do that"
-      redirect_to casts_path
-    end
+    flash[:danger] = "You do not have permission to do that"
+    redirect_to casts_path
   end
 end

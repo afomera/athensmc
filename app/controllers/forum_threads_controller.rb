@@ -1,14 +1,10 @@
 class ForumThreadsController < ApplicationController
   before_action :authenticate_user!, except: %w[index show]
   before_action :set_forum_thread, except: %w[index new create]
-  layout("new")
 
   def index
-    @forum_threads =
-      ForumThread.unscoped.order(sticky: :desc).filter_search(params[:q]).order(
-        updated_at: :desc
-      )
-        .paginate(page: params[:page], per_page: params[:per_page])
+    @forum_threads = ForumThread.unscoped.order(sticky: :desc)
+      .filter_search(params[:q]).order(updated_at: :desc).paginate(page: params[:page], per_page: params[:per_page])
     authorize @forum_threads
   end
 
