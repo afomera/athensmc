@@ -1,5 +1,7 @@
 module Admin
   class ServersController < Admin::BaseController
+    before_action :set_server, only: [:show, :edit, :update]
+
     def index
       @servers = ::Server.all.decorate
     end
@@ -20,16 +22,12 @@ module Admin
     end
 
     def show
-      @server = Server.find(params[:id])
     end
 
     def edit
-      @server = Server.find(params[:id])
     end
 
     def update
-      @server = Server.find(params[:id])
-
       if @server.update(server_params)
         flash[:success] = "Server has been updated"
         redirect_to admin_servers_path
@@ -39,6 +37,10 @@ module Admin
     end
 
     private
+
+    def set_server
+      @server = Server.find(params[:id])
+    end
 
     def server_params
       params.require(:server).permit(

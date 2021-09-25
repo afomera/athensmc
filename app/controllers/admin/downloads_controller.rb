@@ -1,5 +1,5 @@
 class Admin::DownloadsController < Admin::BaseController
-  before_action :find_map_download, only: %w[edit update destroy]
+  before_action :set_map_download, only: [:edit, :update, :destroy]
 
   def index
     @map_downloads =
@@ -41,7 +41,7 @@ class Admin::DownloadsController < Admin::BaseController
 
   private
 
-  def find_map_download
+  def set_map_download
     @map_download = MapDownload.find(params[:id])
   end
 
