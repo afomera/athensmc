@@ -4,11 +4,7 @@ class Admin::UsersController < Admin::BaseController
   skip_before_action :require_admin_account!, only: %w[whitelisted]
 
   def index
-    @users =
-      User.filter_search(params[:q]).paginate(
-        page: params[:page], per_page: params[:per_page]
-      )
-        .decorate
+    @users = User.order(:id).filter_search(params[:q]).paginate(page: params[:page], per_page: params[:per_page]).decorate
     authorize [:admin, Draper.undecorate(@users)]
   end
 
