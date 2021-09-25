@@ -6,7 +6,6 @@
     <div class="d-inline-block">
       <div class="d-flex">
         <%= image_tag user.minecraft_avatar, height: "48px", class: "me-2" %>
-        
         <div>
           <div class="fw-bold"><%= link_to user.username, user_path(user.username) %></div>
           <%= link_to user.email, admin_user_path(user.id), class: "text-sm-start" %>
@@ -20,7 +19,7 @@
   <td><% if user.admin? %><span class="badge bg-danger">Admin</span> <% else %> <span class="badge bg-success">User</span> <% end %></td>
   <td>
     <% if policy([:admin, user]).masqueradeable? %>
-      Login as a user has been removed for now.
+      Login as
     <% end %>
   </td>
 </tr>
