@@ -7,7 +7,7 @@ class Server < ApplicationRecord
 
   before_validation :generate_ssh_key
 
-  attr_encrypted :ssh_private_key, key: Rails.application.secrets.ssh_secret
+  attr_encrypted :ssh_private_key, key: Rails.application.credentials.ssh_secret
 
   def generate_ssh_key
     return if ssh_public_key?

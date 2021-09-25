@@ -20,7 +20,7 @@ class SlackNotifierJob < ApplicationJob
   def notifier
     @notifier ||=
       Slack::Notifier.new(
-        Rails.application.secrets.slack_token,
+        Rails.application.credentials.slack_token,
         username: "AthensMC Whitelist System"
       )
   end

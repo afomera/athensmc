@@ -6,6 +6,8 @@
     <div class="d-flex flex-wrap align-items-center mt-3 mb-n4">
       <span class="align-items-center text-sm text-muted me-2"><%= @server.ssh_username %></span>
       <span class="align-items-center text-sm text-muted me-2"> • </span>
+      <span class="align-items-center text-sm text-muted me-2"><%= @server.ip %></span>
+      <span class="align-items-center text-sm text-muted me-2"> • </span>
       <span class="align-items-center text-sm text-muted me-2"><%= @server.directory %></span>
       <span class="align-items-center text-sm text-muted me-2"> • </span>
       <span class="align-items-center text-sm text-muted me-2"><%= "RCON: #{@server.rcon_port}, Game: #{@server.game_port}, Query: #{@server.query_port}" %></span>
