@@ -3,21 +3,21 @@
     <%= link_to user.id, admin_user_path(user.id) %>
   </td>
   <td>
-    <%= image_tag user.decorate.minecraft_avatar,
-      :height => "48px",
-      :class => "tag-tooltip",
-      data: {
-        'data-bs-toggle' => "tooltip",
-        'data-placement' => "left",
-        title: user.dashed_uuid
-      }  %>
+    <div class="d-inline-block">
+      <div class="d-flex">
+        <%= image_tag user.minecraft_avatar, height: "48px", class: "me-2" %>
+        
+        <div>
+          <div class="fw-bold"><%= link_to user.username, user_path(user.username) %></div>
+          <%= link_to user.email, admin_user_path(user.id), class: "text-sm-start" %>
+        </div>
+      </div>
+    </div>
   </td>
-  <td><%= link_to user.username, user_path(user.username) %></td>
-  <td><%= link_to user.email, admin_user_path(user.id) %> </td>
+  <td><%= tag.span(user.dashed_uuid, class: "text-muted text-sm-start") %></td>
   <td><%= user.last_sign_in_ip %></td>
   <td><%= local_time_ago(user.last_sign_in_at) if user.last_sign_in_at.present? %> </td>
   <td><% if user.admin? %><span class="badge bg-danger">Admin</span> <% else %> <span class="badge bg-success">User</span> <% end %></td>
-  <td><%= user.dashed_uuid %></td>
   <td>
     <% if policy([:admin, user]).masqueradeable? %>
       Login as a user has been removed for now.

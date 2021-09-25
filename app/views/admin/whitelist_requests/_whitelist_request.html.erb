@@ -1,7 +1,11 @@
 <tr>
   <td><%= whitelist_request.id %></td>
-  <td><%= link_to whitelist_request.user.username, user_path(whitelist_request.user.username) %></td>
-  <td><%= whitelist_request.user.dashed_uuid %></td>
+  <td>
+    <div class="d-block">
+      <div><%= link_to whitelist_request.user.username, user_path(whitelist_request.user.username) %></div>
+      <%= tag.span(whitelist_request.user.dashed_uuid, class: "text-muted text-sm-start") %>
+    </div>
+  </td>
   <td><%= whitelist_request.user.last_sign_in_ip %></td>
   <td><%= whitelist_request.referred_by %></td>
   <td>
