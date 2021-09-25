@@ -1,7 +1,9 @@
 <% page_title "Managing #{@server.name}" %>
 
-<div class="d-md-flex justify-content-md-between mb-6">
-  <div class="mb-6 mb-md-4">
+<%= turbo_stream_from @server, "console" %>
+
+<div class="d-md-flex justify-content-md-between mb-4">
+  <div class="mb-4">
     <h1><%= @server.name %></h1>
     <div class="d-flex flex-wrap align-items-center mt-3 mb-n4">
       <span class="align-items-center text-sm text-muted me-2"><%= @server.ssh_username %></span>
@@ -19,27 +21,23 @@
   </div>
 </div>
 
-    <div class="card mb-3">
-      <div class="card-body">
-        <div class="card">
-          <button class="btn btn-primary btn-block" data-behavior="fetch-logs">Fetch Logs</button>
-          <div class="card-body" data-behavior="logs-response" style="color: grey; min-height: 200px; max-height: 400px; overflow-y: auto;">
-            <div class="logs">
-            </div>
-          </div>
-
-          <div class="card-body" data-behavior="rcon-response" data-server="<%= @server.id %>">
-          </div>
-          <hr>
-          <div class="row">
-            <div class="col-md-10">
-              <input type="text" class="form-control" placeholder="say hello" data-behavior="command-input"/>
-            </div>
-            <div class="col-md-2">
-              <button type="submit" class="btn btn-block btn-primary" data-behavior="command-send">Send</button>
-            </div>
-          </div>
-        </div>
-      </div>
+<div class="card">
+  <button class="btn btn-primary btn-block" data-behavior="fetch-logs">Fetch Logs</button>
+  <div class="card-body text-muted" data-behavior="logs-response" style="min-height: 200px; max-height: 400px; overflow-y: auto;">
+    <div id="server-logs">
     </div>
+  </div>
+
+  <div class="card-body" data-behavior="rcon-response" data-server="<%= @server.id %>">
+  </div>
+  <hr>
+  <div class="card-footer">
+    <div class="d-inline-flex">
+      <div class="" style="width: 75%;">
+        <input type="text" class="form-control" placeholder="say hello" data-behavior="command-input"/>
+      </div>
+      <div class="w-full">
+        <button type="submit" class="btn btn-block btn-primary" data-behavior="command-send">Send</button>
+      </div>
+  </div>
 </div>
