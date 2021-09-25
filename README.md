@@ -12,8 +12,6 @@ We strive to promote a fair playing experience for all members and want to encou
 4. Install PostgreSQL/all requirements for OS (Redis needed!)
 5. Run
 
-- `cp config/secrets.yml.example config/secrets.yml`
-- Make the changes to config/secrets.yml and config/database.yml relating to your development install. Then continue.
 - `bundle install`
 - `rails db:create`
 - `rails db:migrate`
