@@ -12,7 +12,6 @@
 //
 //= require local-time
 //= require trix
-//= require highcharts
 //= require chartkick
 //= require_tree .
 
