@@ -60,7 +60,7 @@
         <% else %>
           <%= render partial: "forum_threads/forum_thread",
             collection: @forum_threads, spacer_template: "shared/spacer" %>
-          <div class="mt-3 row justify-content-center">
+          <div class="mt-3 d-flex justify-content-center">
             <%= paginate @forum_threads %>
           </div>
         <% end %>
