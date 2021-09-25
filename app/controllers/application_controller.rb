@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   layout(:by_resource)
 
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_current_user, if: :user_signed_in?
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
@@ -15,6 +16,10 @@ class ApplicationController < ActionController::Base
   helper_method :user_signed_in_is_whitelisted?
 
   private
+
+  def set_current_user
+    Current.user = current_user
+  end
 
   def by_resource
     guest? ? "unauthenticated" : "application"
@@ -46,14 +51,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up) do |u|
-      u.permit(:username, :email, :password, :password_confirmation, :remember_me)
-    end
-    devise_parameter_sanitizer.permit(:sign_in) do |u|
-      u.permit(:login, :username, :email, :password, :remember_me)
-    end
-    devise_parameter_sanitizer.permit(:account_update) do |u|
-      u.permit(:username, :email, :password, :password_confirmation, :current_password)
-    end
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:username])
   end
 end
