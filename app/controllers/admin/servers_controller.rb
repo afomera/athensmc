@@ -3,7 +3,7 @@ module Admin
     before_action :set_server, only: [:show, :edit, :update]
 
     def index
-      @servers = ::Server.all.decorate
+      @servers = ::Server.all
     end
 
     def new

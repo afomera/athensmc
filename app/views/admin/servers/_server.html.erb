@@ -1,7 +1,7 @@
 <tr>
   <td><%= link_to server.name, admin_server_path(server.id) %></td>
   <td><%= server.ip %></td>
-  <td><%= server.ports %></td>
+  <td><%= "RCON: #{server.rcon_port}, Game: #{server.game_port}, Query: #{server.query_port}" %></td>
   <td><%= local_time_ago(server.created_at) %> </td>
   <td class="text-right">
     <%= link_to(edit_admin_server_url(server),
