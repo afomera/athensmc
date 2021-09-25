@@ -1,7 +1,5 @@
 require("@rails/ujs").start();
-
-import LocalTime from "local-time"
-LocalTime.start()
+require("local-time").start();
 
 import "@hotwired/turbo-rails";
 import "bootstrap";
