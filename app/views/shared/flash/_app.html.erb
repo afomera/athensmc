@@ -3,7 +3,7 @@
     <div class="alert <%= bootstrap_class_for(key) %> alert-flash alert-dismissible fade show mt-2" role="alert">
       <%= value %>
 
-      <button type="button" class="btn-close" disabled aria-label="Close"></button>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   </div>
 <% end %>
