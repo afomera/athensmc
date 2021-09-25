@@ -23,11 +23,4 @@ module CastsHelper
       escape: true, omission: "... (read more)"
     )
   end
-
-  def episodecode(content)
-    pipeline_context = {gfm: true}
-    pipeline =
-      HTML::Pipeline.new [HTML::Pipeline::SanitizationFilter], pipeline_context
-    pipeline.call(content)[:output]
-  end
 end

@@ -16,7 +16,6 @@ gem "jbuilder"
 gem "redis", "~> 4.1"
 
 group :development do
-  gem "dotenv-rails", require: "dotenv/rails-now"
   gem "web-console"
   gem "faker"
   gem "listen"
@@ -29,7 +28,6 @@ group :development, :test do
 end
 
 group :test do
-  # gem 'minitest-rails', '~> 3.0'
   gem "webmock", "~> 3.6"
   gem "vcr"
   gem "mocha", "~> 1.6"

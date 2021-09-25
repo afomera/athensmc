@@ -3,10 +3,6 @@ module ApplicationHelper
     content_for(:title) { page_title }
   end
 
-  def body_classes
-    user_signed_in? ? "logged-in" : "logged-out"
-  end
-
   def bootstrap_class_for(flash_type)
     {
       success: "alert-success",
@@ -17,24 +13,6 @@ module ApplicationHelper
       flash_type.to_s
     ] ||
       flash_type.to_s
-  end
-
-  def body_data_page
-    action =
-      case action_name
-      when "create"
-        "new"
-      when "update"
-        "edit"
-      else
-        action_name
-      end
-        .downcase
-
-    path = controller.controller_path.split("/")
-    namespace = path.first if path.second
-
-    [namespace, controller.controller_name, action].compact.join(":")
   end
 
   def forum_post_classes(forum_post)
