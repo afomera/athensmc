@@ -10,8 +10,7 @@ class User < ApplicationRecord
     :recoverable,
     :rememberable,
     :trackable,
-    :validatable,
-    :masqueradable
+    :validatable
 
   before_validation :set_uuid, if: :minecraft_uuid_changed?
 

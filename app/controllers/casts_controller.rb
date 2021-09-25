@@ -1,7 +1,7 @@
 class CastsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_cast, only: %i[show edit update destroy]
-  before_action :check_admin_status, only: %i[new edit create destroy update]
+  before_action :require_admin_account!, only: %i[new edit create destroy update]
 
   def index
     @cast =
@@ -66,13 +66,5 @@ class CastsController < ApplicationController
       :embedcode,
       :shownotes
     )
-  end
-
-  def check_admin_status
-    authenticate_user!
-    return if current_user.admin?
-
-    flash[:danger] = "You do not have permission to do that"
-    redirect_to casts_path
   end
 end

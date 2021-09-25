@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
   layout(:by_resource)
 
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action(:masquerade_user!)
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
@@ -25,6 +24,12 @@ class ApplicationController < ActionController::Base
     devise_controller? && !user_signed_in?
   end
 
+  def require_admin_account!
+    return if current_user.admin?
+
+    user_not_authorized
+  end
+
   def user_not_authorized
     flash[:alert] = "You are not authorized to perform this action."
     redirect_back(fallback_location: root_url)
@@ -36,12 +41,6 @@ class ApplicationController < ActionController::Base
       flash[:alert] = "We need you to link a Minecraft Account before allowing you to continue."
       redirect_to links_minecraft_path
     end
-  end
-
-  def check_admin_status?
-    return if current_user.admin?
-
-    redirect_to root_path, alert: "You do not have permission to do that"
   end
 
   protected

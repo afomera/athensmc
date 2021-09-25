@@ -1,7 +1,7 @@
 class RevisionsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_revision, only: %i[show edit update destroy]
-  before_action :check_admin_status, only: %i[new edit create destroy update]
+  before_action :require_admin_account!, only: %i[new edit create destroy update]
 
   def index
     @revision = Revision.order("created_at DESC").paginate(page: params[:page], per_page: 5)
@@ -51,16 +51,5 @@ class RevisionsController < ApplicationController
 
   def revision_params
     params.require(:revision).permit(:title, :text)
-  end
-
-  def check_admin_status
-    authenticate_user!
-
-    if current_user.admin
-      nil
-    else
-      flash[:danger] = "You do not have permission to do that"
-      redirect_to revisions_path
-    end
   end
 end
