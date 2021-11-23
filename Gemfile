@@ -10,7 +10,7 @@ ruby "2.7.4"
 gem "rails", "~> 6.1"
 gem "puma"
 gem "sass-rails"
-gem "turbo-rails"
+gem "hotwire-rails"
 gem "coffee-rails"
 gem "jbuilder"
 gem "redis", "~> 4.1"
@@ -57,7 +57,7 @@ gem "attr_encrypted", "~> 3.0", ">= 3.0.3"
 gem "sshkey", "~> 2.0"
 gem "net-ssh"
 
-gem "standard", "~> 1.2"
+gem "standard", "~> 1.4"
 
 gem "cssbundling-rails", "~> 0.2.1"
 
