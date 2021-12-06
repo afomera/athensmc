@@ -57,7 +57,7 @@ gem "attr_encrypted", "~> 3.0", ">= 3.0.3"
 gem "sshkey", "~> 2.0"
 gem "net-ssh"
 
-gem "standard", "~> 1.2"
+gem "standard", "~> 1.5"
 
 gem "cssbundling-rails", "~> 0.2.1"
 
