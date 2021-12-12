@@ -135,7 +135,7 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.3)
       activesupport (>= 5.0.0)
-    jsbundling-rails (0.1.9)
+    jsbundling-rails (0.2.2)
       railties (>= 6.0.0)
     kaminari (1.2.1)
       activesupport (>= 4.1.0)
@@ -333,7 +333,7 @@ DEPENDENCIES
   hotwire-rails
   html-pipeline
   jbuilder
-  jsbundling-rails (~> 0.1.6)
+  jsbundling-rails (~> 0.2.2)
   kaminari
   listen
   local_time
