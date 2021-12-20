@@ -101,7 +101,7 @@ GEM
     crass (1.0.6)
     cssbundling-rails (0.2.7)
       railties (>= 6.0.0)
-    devise (4.8.0)
+    devise (4.8.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 4.1.0)
@@ -166,7 +166,7 @@ GEM
     mime-types-data (3.2021.1115)
     mini_mime (1.1.2)
     mini_portile2 (2.6.1)
-    minitest (5.14.4)
+    minitest (5.15.0)
     mocha (1.13.0)
     mojang_api (0.0.2)
       httparty
