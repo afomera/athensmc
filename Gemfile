@@ -59,6 +59,5 @@ gem "net-ssh"
 
 gem "standard", "~> 1.2"
 
-gem "cssbundling-rails", "~> 0.2.1"
-
-gem "jsbundling-rails", "~> 0.1.6"
+gem "cssbundling-rails"
+gem "jsbundling-rails"
