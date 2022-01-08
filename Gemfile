@@ -7,7 +7,7 @@ end
 
 ruby "2.7.5"
 
-gem "rails", "~> 6.1"
+gem "rails", "~> 7.0"
 gem "puma"
 gem "sass-rails"
 gem "hotwire-rails"
