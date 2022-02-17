@@ -52,7 +52,6 @@ gem "trix-rails", require: "trix"
 # Record Tag helper gem for div_for
 gem "record_tag_helper", github: "rails/record_tag_helper"
 
-gem "skylight"
 gem "attr_encrypted", "~> 3.0", ">= 3.0.3"
 gem "sshkey", "~> 2.0"
 gem "net-ssh"

@@ -263,8 +263,6 @@ GEM
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
-    skylight (5.3.0)
-      activesupport (>= 5.2.0)
     slack-notifier (2.4.0)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -345,7 +343,6 @@ DEPENDENCIES
   sanitize
   sass-rails
   selenium-webdriver
-  skylight
   slack-notifier
   sshkey (~> 2.0)
   standard (~> 1.2)
