@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/record_tag_helper.git
-  revision: 89bd552482340127f8a2bbf73d9d0b4ec68f3cf0
+  revision: f0f7f10cbf0f2cb02f8b8c8e56bbd901440c27b7
   specs:
     record_tag_helper (1.0.1)
       actionview (>= 5)
@@ -166,7 +166,7 @@ GEM
     mime-types-data (3.2022.0105)
     mini_mime (1.1.2)
     mini_portile2 (2.8.0)
-    minitest (5.15.0)
+    minitest (5.16.2)
     mocha (1.14.0)
     mojang_api (0.0.2)
       httparty
@@ -211,7 +211,7 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.4.2)
+    rails-html-sanitizer (1.4.3)
       loofah (~> 2.3)
     railties (6.1.6)
       actionpack (= 6.1.6)
@@ -307,7 +307,7 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.5.4)
+    zeitwerk (2.6.0)
 
 PLATFORMS
   ruby
