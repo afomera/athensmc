@@ -7,7 +7,8 @@ end
 
 ruby "3.0.3"
 
-gem "rails", "~> 6.1"
+gem "rails", "~> 7"
+gem "sprockets-rails"
 gem "puma"
 gem "sass-rails"
 gem "hotwire-rails"
@@ -30,7 +31,7 @@ end
 group :test do
   gem "webmock", "~> 3.6"
   gem "vcr"
-  gem "mocha", "~> 1.6"
+  gem "mocha"
 end
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "html-pipeline"
@@ -52,7 +53,7 @@ gem "trix-rails", require: "trix"
 # Record Tag helper gem for div_for
 gem "record_tag_helper", github: "rails/record_tag_helper"
 
-gem "attr_encrypted", "~> 3.0", ">= 3.0.3"
+gem "attr_encrypted", github: "PagerTree/attr_encrypted", branch: "rails-7-0-support"
 gem "sshkey", "~> 2.0"
 gem "net-ssh"
 
