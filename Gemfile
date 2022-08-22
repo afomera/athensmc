@@ -29,7 +29,7 @@ group :development, :test do
 end
 
 group :test do
-  gem "webmock", "~> 3.6"
+  gem "webmock", "~> 3.18"
   gem "vcr"
   gem "mocha"
 end
