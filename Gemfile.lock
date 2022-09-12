@@ -108,6 +108,7 @@ GEM
     coffee-script-source (1.12.2)
     commonmarker (0.23.5)
     concurrent-ruby (1.1.10)
+    connection_pool (2.2.5)
     crack (0.4.5)
       rexml
     crass (1.0.6)
@@ -202,6 +203,8 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.8-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.13.8-x86_64-linux)
+      racc (~> 1.4)
     orm_adapter (0.5.0)
     parallel (1.22.1)
     parser (3.1.2.1)
@@ -250,7 +253,10 @@ GEM
     rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    redis (4.8.0)
+    redis (5.0.4)
+      redis-client (>= 0.7.4)
+    redis-client (0.8.0)
+      connection_pool
     regexp_parser (2.5.0)
     responders (3.0.1)
       actionpack (>= 5.0)
@@ -342,6 +348,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-21
+  x86_64-linux
 
 DEPENDENCIES
   attr_encrypted!
@@ -371,7 +378,7 @@ DEPENDENCIES
   pundit (~> 2.1)
   rails (~> 7)
   record_tag_helper!
-  redis (~> 4.1)
+  redis (~> 5.0)
   sanitize
   sass-rails
   selenium-webdriver
