@@ -106,7 +106,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    commonmarker (0.23.5)
+    commonmarker (0.23.6)
     concurrent-ruby (1.1.10)
     crack (0.4.5)
       rexml
@@ -201,6 +201,8 @@ GEM
     net-ssh (7.0.1)
     nio4r (2.5.8)
     nokogiri (1.13.8-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.13.8-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     parallel (1.22.1)
@@ -342,6 +344,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-21
+  x86_64-linux
 
 DEPENDENCIES
   attr_encrypted!
