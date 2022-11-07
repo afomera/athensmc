@@ -123,7 +123,7 @@ GEM
     encryptor (3.0.0)
     erubi (1.11.0)
     execjs (2.8.1)
-    faker (2.22.0)
+    faker (3.0.0)
       i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
     friendly_id (5.4.2)
@@ -201,6 +201,8 @@ GEM
     net-ssh (7.0.1)
     nio4r (2.5.8)
     nokogiri (1.13.8-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.13.8-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     parallel (1.22.1)
@@ -342,6 +344,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-21
+  x86_64-linux
 
 DEPENDENCIES
   attr_encrypted!
