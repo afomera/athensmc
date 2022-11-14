@@ -57,7 +57,7 @@ gem "attr_encrypted", github: "PagerTree/attr_encrypted", branch: "rails-7-0-sup
 gem "sshkey", "~> 2.0"
 gem "net-ssh"
 
-gem "standard", "~> 1.2"
+gem "standard", "~> 1.17"
 
 gem "cssbundling-rails"
 gem "jsbundling-rails"
