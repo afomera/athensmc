@@ -202,6 +202,8 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.8-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.13.8-x86_64-linux)
+      racc (~> 1.4)
     orm_adapter (0.5.0)
     parallel (1.22.1)
     parser (3.1.2.1)
@@ -251,24 +253,24 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     redis (4.8.0)
-    regexp_parser (2.5.0)
+    regexp_parser (2.6.1)
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.5)
-    rubocop (1.35.0)
+    rubocop (1.39.0)
       json (~> 2.3)
       parallel (~> 1.10)
       parser (>= 3.1.2.1)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.8, < 3.0)
       rexml (>= 3.2.5, < 4.0)
-      rubocop-ast (>= 1.20.1, < 2.0)
+      rubocop-ast (>= 1.23.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 3.0)
-    rubocop-ast (1.21.0)
+    rubocop-ast (1.23.0)
       parser (>= 3.1.1.0)
-    rubocop-performance (1.14.3)
+    rubocop-performance (1.15.0)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
     ruby-progressbar (1.11.0)
@@ -300,9 +302,9 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     sshkey (2.0.0)
-    standard (1.16.0)
-      rubocop (= 1.35.0)
-      rubocop-performance (= 1.14.3)
+    standard (1.18.0)
+      rubocop (= 1.39.0)
+      rubocop-performance (= 1.15.0)
     stimulus-rails (1.1.0)
       railties (>= 6.0.0)
     strscan (3.0.4)
@@ -319,7 +321,7 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
-    unicode-display_width (2.2.0)
+    unicode-display_width (2.3.0)
     vcr (6.1.0)
     warden (1.2.9)
       rack (>= 2.0.9)
@@ -342,6 +344,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-21
+  x86_64-linux
 
 DEPENDENCIES
   attr_encrypted!
@@ -378,7 +381,7 @@ DEPENDENCIES
   slack-notifier
   sprockets-rails
   sshkey (~> 2.0)
-  standard (~> 1.2)
+  standard (~> 1.18)
   sucker_punch
   trix-rails
   tzinfo-data
