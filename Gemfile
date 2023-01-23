@@ -14,7 +14,7 @@ gem "sass-rails"
 gem "hotwire-rails"
 gem "coffee-rails"
 gem "jbuilder"
-gem "redis", "~> 4.1"
+gem "redis", "~> 5.0"
 
 group :development do
   gem "web-console"
