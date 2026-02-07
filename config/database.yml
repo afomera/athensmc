@@ -24,7 +24,7 @@ default: &default
 
 development:
   <<: *default
-  database: athensmc_development
+  database: athensmc_development<%= "_#{ENV['CONDUCTOR_WORKSPACE_NAME'].gsub(/[^a-zA-Z0-9_-]/, '_')}" if ENV['CONDUCTOR_WORKSPACE_NAME'] %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -58,7 +58,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: athensmc_test
+  database: athensmc_test<%= "_#{ENV['CONDUCTOR_WORKSPACE_NAME'].gsub(/[^a-zA-Z0-9_-]/, '_')}" if ENV['CONDUCTOR_WORKSPACE_NAME'] %>
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is

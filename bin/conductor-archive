@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+set -eo pipefail
+
+echo "==> Archiving workspace: ${CONDUCTOR_WORKSPACE_NAME}"
+
+# Drop the workspace-specific Postgres database
+bin/rails db:drop
+
+echo "==> Archive complete"

@@ -37,7 +37,7 @@ end
 
   forum_thread =
     ForumThread.create(
-      subject: Faker::HowIMetYourMother.quote,
+      subject: Faker::Lorem.sentence,
       user_id: user.id,
       forum_category_id: ForumCategory.all.sample.id
     )
