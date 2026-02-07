@@ -1,7 +1,6 @@
 module ForumThreadsHelper
   def html_render(content)
-    pipeline = HTML::Pipeline.new [HTML::Pipeline::SanitizationFilter]
-    pipeline.call(content)[:output].to_s.html_safe
+    Sanitize.fragment(content, Sanitize::Config::BASIC).html_safe
   end
 
   def forum_link_to(path, opts = {}, &block)

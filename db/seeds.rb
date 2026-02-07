@@ -44,7 +44,7 @@ end
 
   ForumPost.create(
     user: user,
-    body: Faker::Lorem.paragraph(2, false, 4),
+    body: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4),
     forum_thread: forum_thread
   )
 
@@ -55,7 +55,7 @@ end
       ForumPost.create(
         forum_thread_id: forum_thread.id,
         user_id: User.all.sample.id,
-        body: Faker::Lorem.paragraph(2, false, 4)
+        body: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4)
       )
 
     puts "  Created Post by #{forum_post.user.username}"
