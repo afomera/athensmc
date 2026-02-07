@@ -5,9 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby "~> 3.1"
+ruby "~> 3.4"
 
 gem "rails", "~> 7.1.0"
+gem "minitest", "~> 5.0"
 gem "sprockets-rails"
 gem "puma"
 gem "sass-rails"
@@ -25,7 +26,7 @@ end
 group :development, :test do
   gem "capybara"
   gem "selenium-webdriver"
-  gem "byebug"
+  gem "debug"
 end
 
 group :test do
