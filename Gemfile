@@ -7,7 +7,7 @@ end
 
 ruby "~> 3.1"
 
-gem "rails", "~> 7"
+gem "rails", "~> 7.0.0"
 gem "sprockets-rails"
 gem "puma"
 gem "sass-rails"
