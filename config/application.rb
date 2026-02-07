@@ -9,7 +9,7 @@ Bundler.require(*Rails.groups)
 module AthensMC
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.1
+    config.load_defaults 7.1
 
     # Use sucker_punch for delayed jobs
     config.active_job.queue_adapter = :sucker_punch

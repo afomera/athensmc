@@ -7,12 +7,12 @@ end
 
 ruby "~> 3.1"
 
-gem "rails", "~> 7.0.0"
+gem "rails", "~> 7.1.0"
 gem "sprockets-rails"
 gem "puma"
 gem "sass-rails"
-gem "hotwire-rails"
-gem "coffee-rails"
+gem "turbo-rails"
+gem "stimulus-rails"
 gem "jbuilder"
 gem "redis", "~> 4.1"
 
