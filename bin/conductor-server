@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+set -eo pipefail
+
+REPO_ROOT="${0:a:h:h}"
+
+# Port priority: CONDUCTOR_PORT > PORT > 3000
+export PORT="${CONDUCTOR_PORT:-${PORT:-3000}}"
+
+cd "$REPO_ROOT"
+exec bin/dev

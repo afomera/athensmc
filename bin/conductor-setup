@@ -1,0 +1,68 @@
+#!/usr/bin/env zsh
+set -eo pipefail
+
+echo "==> Conductor setup for workspace: ${CONDUCTOR_WORKSPACE_NAME}"
+
+REPO_ROOT="${0:a:h:h}"
+
+# Symlink .env files from root repo if they exist
+if [[ -n "$CONDUCTOR_ROOT_PATH" ]]; then
+  for env_file in ".env" ".env.development.local"; do
+    src="$CONDUCTOR_ROOT_PATH/$env_file"
+    dest="$REPO_ROOT/$env_file"
+    if [[ -f "$src" && ! -e "$dest" ]]; then
+      echo "==> Symlinking $env_file from root repo"
+      ln -sf "$src" "$dest"
+    fi
+  done
+
+  # Copy master.key if not present
+  if [[ -f "$CONDUCTOR_ROOT_PATH/config/master.key" && ! -f "$REPO_ROOT/config/master.key" ]]; then
+    echo "==> Copying master.key from root repo"
+    cp "$CONDUCTOR_ROOT_PATH/config/master.key" "$REPO_ROOT/config/master.key"
+  fi
+
+  # Copy per-environment credential keys (config/credentials/*.key)
+  if [[ -d "$CONDUCTOR_ROOT_PATH/config/credentials" ]]; then
+    for key_file in "$CONDUCTOR_ROOT_PATH"/config/credentials/*.key(N); do
+      dest="$REPO_ROOT/config/credentials/$(basename "$key_file")"
+      if [[ ! -f "$dest" ]]; then
+        mkdir -p "$REPO_ROOT/config/credentials"
+        echo "==> Copying $(basename "$key_file") from root repo"
+        cp "$key_file" "$dest"
+      fi
+    done
+  fi
+
+  # Copy Active Storage blob files from root repo
+  if [[ -d "$CONDUCTOR_ROOT_PATH/storage" ]]; then
+    blobs_copied=false
+    for blob_dir in "$CONDUCTOR_ROOT_PATH"/storage/??/??(N); do
+      if [[ -d "$blob_dir" ]]; then
+        rel_path="${blob_dir#$CONDUCTOR_ROOT_PATH/storage/}"
+        mkdir -p "$REPO_ROOT/storage/$rel_path"
+        if [[ -n "$(ls -A "$blob_dir" 2>/dev/null)" ]]; then
+          cp -rn "$blob_dir"/* "$REPO_ROOT/storage/$rel_path/"
+          blobs_copied=true
+        fi
+      fi
+    done
+    if $blobs_copied; then
+      echo "==> Copied Active Storage blobs from root repo"
+    fi
+  fi
+fi
+
+# Install dependencies
+echo "==> Installing Ruby dependencies"
+cd "$REPO_ROOT"
+bundle install
+
+echo "==> Installing JavaScript dependencies"
+yarn install
+
+# Create and migrate the workspace database
+echo "==> Preparing database"
+bin/rails db:prepare
+
+echo "==> Setup complete"
